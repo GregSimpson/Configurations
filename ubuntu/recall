@@ -1,0 +1,49 @@
+
+#!/bin/bash
+#(set -o igncr) 2>/dev/null && set -o igncr; # comment is needed
+
+
+#
+# :%s/\r//g  removes trailing ^M characters
+#
+
+# searches the rememberfile for matching lines
+#  OR shows the entire rememberfile if no arg is given
+
+display_parameters()
+{
+   echo "--------------------"
+   echo "dollar @ = $@"
+   echo "dollar # = $#"
+   echo "dollar 1 = $1"
+   echo "dollar 2 = $2"
+   echo "dollar 3 = $3"
+   echo "dollar 4 = $4"
+   echo "dollar rememberhome = $rememberhome"
+   echo "dollar rememberfile = $rememberfile"
+}
+
+#
+# MAIN script routine
+#
+
+GJS_REMEMBERFILE=/home/gsimpson/bin/reminders/.remember
+
+# $# is the number of parameters
+if [ $# == 0 ] ; then
+      #more $rememberfile
+      cat  $GJS_REMEMBERFILE
+      ##cat  c:/bin/reminders/.remember
+   else
+      #this needs to be in a loop for multiple word searches
+      SEARCH_TARGETS=$@
+      for EACH_TARGET in $SEARCH_TARGETS
+      do
+         #grep -i "$SEARCH_TARGET" $GJS_REMEMBERFILE | ${PAGER: -more}
+         grep -i "$EACH_TARGET" $GJS_REMEMBERFILE
+      done
+   fi
+
+
+exit 0
+
