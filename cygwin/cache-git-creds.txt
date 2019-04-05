@@ -1,0 +1,8 @@
+# this did not work in cygwin - it might work in windows
+# https://help.github.com/en/articles/caching-your-github-password-in-git
+# git config --global credential.helper wincred
+
+
+# THIS worked in cygwin - set for 24 hours
+git config --global credential.helper 'cache --timeout=86400'
+
