@@ -1,0 +1,133 @@
+#!/bin/bash
+(set -o igncr) 2>/dev/null && set -o igncr; # comment is needed
+
+
+#
+# :%s/\r//g  removes trailing ^M characters
+#
+
+# searches the rememberfile for matching lines
+#  OR shows the entore rememberfile if no arg is given
+
+COMMON_FILE=common.env
+
+check_for_common_file()
+{
+
+   # -r is true if file exists and is readable
+   if [ ! -r $1 ] ; then
+      echo "$1 NoT found"
+      echo " it should exist and contain entries like: "
+      echo "   rememberhome=/home/gsimpson  {on unix} "
+      echo "   rememberhome=c:\bin          {on windows} "
+      echo "   rememberfile=$rememberhome/<some-dir>/reminders/.remember"
+      exit 0
+   fi
+}
+
+set_common_gjs()
+{
+   echo "set_common_gjs START"
+   while read record
+   do
+      echo $record
+      echo $record | awk -F'=' '{print $1}'
+      echo $record | awk -F'=' '{print $2}'
+      FIRST=`echo $record | awk -F'=' '{print $1}'`
+      SECOND=`echo $record | awk -F'=' '{print $2}'`
+
+      echo $FIRST
+      echo $SECOND
+      echo "---"
+
+      #eval `echo $record | awk -F'=' '{print $1}' = echo $record | awk -F'=' '{print $2}'`
+      #eval `echo $record | awk -F'=' '{print $1}'=`
+      eval `$FIRST=$SECOND`
+
+
+      #echo $record | awk -F'=' '{print $2}'|sed 's/\"//g'
+      #eval `echo $record | awk -F'=' '{print $1}'|sed 's/\"//g''='echo $record | awk -F'=' '{print $2}'`
+
+
+   done < $COMMON_FILE
+
+   echo $rememberhome
+   echo $rememberfile
+   echo "set_common_gjs END"
+}
+
+set_common_env()
+{
+   while read record
+   do
+      echo $record | awk -F'=' '{print $1}'|sed 's/\"//g'
+      echo $record | awk -F'=' '{print $2}'|sed 's/\"//g'
+      eval `echo $record | awk -F'=' '{print $1}'|sed 's/\"//g''='echo $record | awk -F'=' '{print $2}'`
+
+   done < $COMMON_FILE
+
+   echo $rememberhome
+   echo $rememberfile
+}
+
+display_parameters()
+{
+   echo "--------------------"
+   echo "dollar @ = $@"
+   echo "dollar # = $#"
+   echo "dollar 1 = $1"
+   echo "dollar 2 = $2"
+   echo "dollar 3 = $3"
+   echo "dollar 4 = $4"
+   echo "dollar rememberhome = $rememberhome"
+   echo "dollar rememberfile = $rememberfile"
+}
+
+#
+# MAIN script routine
+#
+#check_for_common_file $COMMON_FILE
+
+#save original script parameters
+ORIG_PARAMS=$@
+
+#set common attributes
+#set_common_gjs
+#COMMON_SETINGS=`set_common_env $@`
+#set -- `echo $COMMON_SETTINGS`
+#eval `echo $1=$2`
+#eval `echo $3=$4`
+
+
+#reset the ORIG_PARAMS
+set -- `echo $ORIG_PARAMS`
+
+#display_parameters $@
+
+
+
+#most of the above stuff did not translate well to my machine
+#  the following (short) code section is the important stuff
+##GJS_REMEMBERFILE=c:/bin/reminders/.remember
+##GJS_REMEMBERFILE=~/bin/reminders/.remember
+GJS_REMEMBERFILE=/cygdrive/c/gjs/bin/reminders/.remember
+
+# $# is the number of parameters
+if [ $# == 0 ] ; then
+      #more $rememberfile
+      cat  $GJS_REMEMBERFILE
+      ##cat  c:/bin/reminders/.remember
+   else
+      #this needs to be in a loop for multiple word searches
+      SEARCH_TARGETS=$@
+      for EACH_TARGET in $SEARCH_TARGETS
+      do
+         #grep -i "$SEARCH_TARGET" $GJS_REMEMBERFILE | ${PAGER: -more}
+         grep -i "$EACH_TARGET" $GJS_REMEMBERFILE
+      done
+   fi
+
+
+exit 0
+
+
