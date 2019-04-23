@@ -1,5 +1,6 @@
 
 sudo rm /var/lib/dpkg/lock > /dev/null 2>&1
+sudo rm /var/lib/dpkg/lock-frontend > /dev/null 2>&1
 
 sudo apt-get -y update
 sudo apt-get -y upgrade
@@ -14,8 +15,8 @@ sudo apt-get -y install --upgrade git
 sudo apt-get -y install --upgrade nodejs
 sudo apt-get -y install --upgrade node-gyp libssl1.0-dev
 sudo apt-get -y install --upgrade libssl1.0-dev
+sudo apt-get -y install --upgrade net-tools
 sudo apt-get -y install --upgrade npm
-sudo npm install -g --unsafe-perm node-red
 
 sudo apt-get -y install --upgrade perl
 sudo apt-get -y install --upgrade putty
@@ -38,6 +39,24 @@ sudo apt-get -y install python-setuptools
 
 # pip stuff here
 pip install pydbgen
+
+# mongodb install steps here
+#  from : https://www.howtoforge.com/tutorial/install-mongodb-on-ubuntu/
+# sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 68818C72E52529D4
+# sudo echo "deb http://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+sudo apt-get -y install --upgrade  mongodb-org
+# sudo systemctl start mongod
+# sudo systemctl enable mongod
+# sudo netstat -plntu
+sudo npm install -g -y nodemon
+
+npm install mongoose --save
+npm install body-parser --save
+
+sudo npm install -g node-red
+#sudo npm install -g --unsafe-perm node-red
+sudo npm install -g node-red-node-mongodb
+
 
 sudo apt -y autoremove
 apt list --upgradeable
