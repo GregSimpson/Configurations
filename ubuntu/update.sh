@@ -1,4 +1,7 @@
 
+# https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04
+
+
 sudo rm /var/lib/dpkg/lock > /dev/null 2>&1
 sudo rm /var/lib/dpkg/lock-frontend > /dev/null 2>&1
 
@@ -11,6 +14,8 @@ sudo apt-get -y install --upgrade curl
 sudo apt-get -y install --upgrade dos2unix
 sudo apt-get -y install --upgrade flashplugin-installer
 sudo apt-get -y install --upgrade git
+
+sudo apt-get -y install --upgrade openjdk-11-jdk
 
 sudo apt-get -y install --upgrade nodejs
 sudo apt-get -y install --upgrade node-gyp libssl1.0-dev
@@ -56,6 +61,7 @@ npm install body-parser --save
 sudo npm install -g node-red
 #sudo npm install -g --unsafe-perm node-red
 sudo npm install -g node-red-node-mongodb
+
 
 
 sudo apt -y autoremove
