@@ -48,7 +48,7 @@ sudo apt-get -y install python-setuptools
 # deactivate
 
 # pip stuff here
-pip install pydbgen
+#pip install pydbgen
 
 # mongodb install steps here
 #  from : https://www.howtoforge.com/tutorial/install-mongodb-on-ubuntu/
