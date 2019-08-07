@@ -17,13 +17,15 @@ sudo apt-get -y install --upgrade git
 
 sudo apt-get -y install --upgrade openjdk-11-jdk
 
-sudo apt-get -y install --upgrade nodejs
-sudo apt-get -y install --upgrade node-gyp libssl1.0-dev
 sudo apt-get -y install --upgrade libssl1.0-dev
 sudo apt-get -y install --upgrade net-tools
+sudo apt-get -y install --upgrade nodejs
+sudo apt-get -y install --upgrade node-gyp
 sudo apt-get -y install --upgrade npm
 
 sudo apt-get -y install --upgrade perl
+sudo apt-get -y install --upgrade postgresql
+sudo apt-get -y install --upgrade postgresql-contrib
 sudo apt-get -y install --upgrade putty
 sudo apt-get -y install --upgrade python-virtualenv python-pip
 sudo apt-get -y install --upgrade rpm
@@ -49,6 +51,7 @@ pip install pydbgen
 #  from : https://www.howtoforge.com/tutorial/install-mongodb-on-ubuntu/
 # sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 68818C72E52529D4
 # sudo echo "deb http://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+sudo apt-get -y install --upgrade  mongodb-clients
 sudo apt-get -y install --upgrade  mongodb-org
 # sudo systemctl start mongod
 # sudo systemctl enable mongod
