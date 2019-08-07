@@ -71,7 +71,7 @@ alias b='cd ..'
 alias bashalias='gvim ~/.bash_aliases'
 alias gjs='cd ~/gjs'
 #alias flow='pushd /cygdrive/c/cygwin64/home/eloy98104/.node-red'
-alias reminder='gvim ~/gjs/bin/reminders/.remember'
+alias reminder='gvim ~/bin/reminders/.remember'
 
 
 ##### https://www.tldp.org/LDP/abs/html/sample-bashrc.html
