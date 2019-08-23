@@ -21,7 +21,7 @@ display_parameters()
 # MAIN script routine
 #
 
-GJS_REMEMBERFILE=/home/gsimpson/bin/reminders/.remember
+GJS_REMEMBERFILE=~/bin/reminders/.remember
 
 # $# is the number of parameters
 if [ $# == 0 ] ; then

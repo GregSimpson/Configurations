@@ -6,6 +6,7 @@ alias l='ls -CF'
 # my aliases
 alias b='cd ..'
 alias gitDevelop='git clone -b develop  https://github.com/humanifydev/HIP-Ops.git'
+alias gitBranch='git clone --single-branch --branch develop https://github.com/humanifydev/HIP-Ops.git'
 alias virt='source ~/bin/anacondaPython3/bin/activate'
 alias virtx='deactivate'
 
