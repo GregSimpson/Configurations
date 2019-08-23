@@ -59,7 +59,7 @@ sudo apt-get -y install python-setuptools
 # sudo systemctl enable mongod
 # sudo netstat -plntu
 sudo npm install -g -y nodemon
-sudo install -g newman
+sudo npm install -g -y ewman
 
 npm install mongoose --save
 npm install body-parser --save
