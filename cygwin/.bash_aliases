@@ -32,6 +32,11 @@ alias la='ls -a'
 # my stuff
 alias b='cd ..'
 alias bashalias='gvim c:/cygwin64/home/eloy98104/.bash_aliases'
+alias home='cd /cygdrive/c/cygwin64/home/eloy98104'
+alias gitBranch='git clone --single-branch --branch develop https://github.com/humanifydev/HIP-Ops.git'
+alias gitDevelop='git reset --hard origin/develop'
+alias gjs='cd /cygdrive/c/gjs'
+alias flow='pushd /cygdrive/c/cygwin64/home/eloy98104/.node-red'
 alias reminder='gvim c:/gjs/bin/reminders/.remember'
 
 
@@ -227,5 +232,7 @@ function repeat()       # Repeat n times command.
 }
 
 
-cd /cygdrive/c/gjs
-
+# cd /cygdrive/c/gjs
+# cd /cygdrive/c/gjs/git_stuff/HIP-Ops/postgres/schema
+cd /cygdrive/c/gjs/git_stuff/HIP-Ops/nodeprojects/flows
+cd /cygdrive/c/gjs/git_stuff/HIP-Ops/nodered-docker-api-scripts
