@@ -7,6 +7,8 @@ alias l='ls -CF'
 alias b='cd ..'
 alias gitDevelop='git clone -b develop  https://github.com/humanifydev/HIP-Ops.git'
 alias gitBranch='git clone --single-branch --branch develop https://github.com/humanifydev/HIP-Ops.git'
+alias gitDevelop='git reset --hard origin/develop'
+alias hipops_env='env|grep MON; env|grep POST; env|grep RUNTIME'
 alias virt='source ~/bin/anacondaPython3/bin/activate'
 alias virtx='deactivate'
 
@@ -244,4 +246,7 @@ function repeat()       # Repeat n times command.
 }
 
 
+
+#cd /home/hipops-dev/git_stuff/HIP-Ops
+cd /opt/HIP-Ops
 
