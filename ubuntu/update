@@ -136,8 +136,9 @@ sudo npm install -g node-red-node-mongodb
 #sudo systemctl status docker
 
 
+snap install postman
 
 
-
+sudo apt -y --fix-broken install
 sudo apt -y autoremove
 apt list --upgradeable
