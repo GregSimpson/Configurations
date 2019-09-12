@@ -1,3 +1,6 @@
+# add ~/bin to path
+export PATH=$PATH:~/bin
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -248,5 +251,5 @@ function repeat()       # Repeat n times command.
 
 
 #cd /home/hipops-dev/git_stuff/HIP-Ops
-cd /opt/HIP-Ops
+#cd /opt/HIP-Ops
 

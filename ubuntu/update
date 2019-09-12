@@ -1,4 +1,10 @@
 
+# download jetBrains toolbox
+#  https://www.jetbrains.com/help/idea/installation-guide.html
+
+# install anaconda
+#  https://linuxhint.com/install_anaconda_python_ubuntu_1804/
+
 # https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04
 
 
@@ -15,6 +21,11 @@ sudo apt-get -y install --upgrade docker.io
 sudo apt-get -y install --upgrade dos2unix
 sudo apt-get -y install --upgrade flashplugin-installer
 sudo apt-get -y install --upgrade git
+sudo apt-get -y install --upgrade gnome-tweak-tool 
+
+sudo apt-get -y install --upgrade ipython
+sudo apt-get -y install --upgrade ipython-notebook
+
 
 sudo apt-get -y install --upgrade openjdk-11-jdk
 
@@ -29,7 +40,7 @@ sudo apt-get -y install --upgrade npm
 sudo apt-get -y install --upgrade perl
 #sudo apt-get -y install --upgrade postgresql
 #sudo apt-get -y install --upgrade postgresql-contrib
-sudo apt install postgresql postgresql-contrib
+sudo apt-get -y install postgresql postgresql-contrib
 
 # gjs postgres notes here
 #  https://linuxize.com/post/how-to-install-postgresql-on-ubuntu-18-04/
@@ -42,11 +53,20 @@ sudo apt-get -y install --upgrade pgadmin4
 sudo apt-get -y install --upgrade pgadmin4-apache2
 
 sudo apt-get -y install --upgrade putty
+sudo apt-get -y install --upgrade python-matplotlib
 sudo apt-get -y install --upgrade python-virtualenv python-pip
+sudo apt-get -y install --upgrade python3.6
+sudo apt-get -y install --upgrade python3-pandas
+
 sudo apt-get -y install --upgrade rpm
+sudo apt-get -y install --upgrade tree
 sudo apt-get -y install --upgrade unity-tweak-tool
 sudo apt-get -y install --upgrade vim-gtk
 sudo apt-get -y install --upgrade virtualbox-guest-dkms
+
+#sudo apt-get -y install --upgrade libcanberra-gtk-module
+sudo apt-get -y install --upgrade libcanberra-gtk*
+
 
 # https://www.howtoopensource.com/2011/05/installation-of-virtualenv-in-linux
 sudo apt-get -y install python-setuptools
