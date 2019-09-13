@@ -157,6 +157,7 @@ sudo npm install -g node-red-node-mongodb
 
 
 snap install postman
+sudo snap install intellij-idea-ultimate --classic --edge
 
 
 sudo apt -y --fix-broken install
