@@ -4,9 +4,6 @@
 #  https://www.jetbrains.com/toolbox/app/
 
 
-# install anaconda
-#  https://linuxhint.com/install_anaconda_python_ubuntu_1804/
-
 # https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04
 
 
@@ -19,6 +16,7 @@ sudo apt-get -y upgrade
 sudo apt-get -y install --upgrade alien
 sudo apt-get -y install --upgrade cups-pdf
 sudo apt-get -y install --upgrade curl
+sudo apt-get -y install --upgrade docker-compose
 sudo apt-get -y install --upgrade docker.io
 sudo apt-get -y install --upgrade dos2unix
 sudo apt-get -y install --upgrade flashplugin-installer
@@ -30,6 +28,7 @@ sudo apt-get -y install --upgrade ipython-notebook
 
 
 sudo apt-get -y install --upgrade openjdk-11-jdk
+sudo apt-get -y install --upgrade openvpn
 
 sudo apt-get -y install --upgrade libssl1.0-dev
 sudo apt-get -y install --upgrade libcanberra-gtk-module
@@ -82,6 +81,9 @@ sudo apt-get -y install python-setuptools
 # deactivate
 
 # pip stuff here
+pip install --upgrade pip
+pip install --upgrade tensorflow
+
 #pip install pydbgen
 
 # mongodb install steps here
@@ -89,7 +91,7 @@ sudo apt-get -y install python-setuptools
 ##  DID work
 ## https://askubuntu.com/questions/748789/run-mongodb-service-as-daemon-of-systemd-on-ubuntu-15-10
 #sudo apt-get remove -y mongodb-org
-sudo apt-get -y install --upgrade mongodb-org
+#sudo apt-get -y install --upgrade mongodb-org
 
 ##After installing MongoDB, the commands below can be used to stop, start and enable MongoDB to automatically startup when the systems boots up.
 
@@ -158,8 +160,13 @@ sudo npm install -g node-red-node-mongodb
 #sudo systemctl status docker
 
 
-snap install postman
+#snap install postman
+#sudo snap refresh postman
 
+# install anaconda
+#  https://linuxhint.com/install_anaconda_python_ubuntu_1804/
+#conda install anaconda-navigator
+conda update --all -y
 
 sudo apt -y --fix-broken install
 sudo apt -y autoremove
