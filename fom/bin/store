@@ -1,0 +1,43 @@
+
+#!/bin/bash
+# (set -o igncr) 2>/dev/null && set -o igncr; # comment is needed
+
+# a cmd-line memory file
+
+display_parameters()
+{
+   echo "--------------------"
+   echo "dollar @ = $@"
+   echo "dollar # = $#"
+   echo "dollar 1 = $1"
+   echo "dollar 2 = $2"
+   echo "dollar 3 = $3"
+   echo "dollar 4 = $4"
+   echo "home=$home"
+   echo "rememberfile=$rememberfile"
+}
+
+#
+# MAIN script routine
+#
+
+GJS_REMEMBERFILE=~/bin/reminders/.remember
+
+# $# is the number of parameters
+if [ $# == 0 ] ; then
+      echo "Enter note, end with ^D: "
+      #cat - >> $rememberfile
+      cat - >> $GJS_REMEMBERFILE
+   else
+      #echo "$@" >> $rememberfile
+      echo "$@" >> $GJS_REMEMBERFILE
+   fi
+
+LOG_DATE_STAMP=`eval date '+%Y%m%d..%H:%M:%S'`
+#echo "---------- $LOG_DATE_STAMP ----------" >> $rememberfile
+echo "---------- $LOG_DATE_STAMP ----------" >> $GJS_REMEMBERFILE
+
+exit 0
+
+
+
