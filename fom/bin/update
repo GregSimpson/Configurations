@@ -142,4 +142,4 @@ sudo npm install -g node-red-node-mongodb
 
 sudo apt -y --fix-broken install
 sudo apt -y autoremove
-sudo apt -y list --upgradeable
+sudo apt list --upgradeable
