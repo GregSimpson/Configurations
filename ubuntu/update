@@ -12,6 +12,7 @@ sudo rm /var/lib/dpkg/lock-frontend > /dev/null 2>&1
 
 sudo apt-get -y update
 sudo apt-get -y upgrade
+sudo apt -y --fix-broken install
 
 sudo apt-get -y install --upgrade alien
 sudo apt-get -y install --upgrade cups-pdf
@@ -32,7 +33,7 @@ sudo apt-get -y install --upgrade openvpn
 
 sudo apt-get -y install --upgrade libssl1.0-dev
 sudo apt-get -y install --upgrade libcanberra-gtk-module
-sudo apt-get -y install --upgrade mongodb-clients
+#sudo apt-get -y install --upgrade mongodb-clients
 sudo apt-get -y install --upgrade net-tools
 sudo apt-get -y install --upgrade nodejs
 sudo apt-get -y install --upgrade node-gyp
@@ -55,9 +56,12 @@ sudo apt-get -y install --upgrade pgadmin4-apache2
 
 sudo apt-get -y install --upgrade putty
 sudo apt-get -y install --upgrade python-matplotlib
-sudo apt-get -y install --upgrade python-virtualenv python-pip
+sudo apt-get -y install --upgrade python-pip 
+sudo apt-get -y install --upgrade python-pyasn1
+sudo apt-get -y install --upgrade python-paramiko
 sudo apt-get -y install --upgrade python3.6
 sudo apt-get -y install --upgrade python3-pandas
+sudo apt-get -y install --upgrade python-setuptools
 
 sudo apt-get -y install --upgrade rpm
 sudo apt-get -y install --upgrade tree
@@ -70,7 +74,7 @@ sudo apt-get -y install --upgrade libcanberra-gtk*
 
 
 # https://www.howtoopensource.com/2011/05/installation-of-virtualenv-in-linux
-sudo apt-get -y install python-setuptools
+#sudo apt-get -y install python-setuptools
 # sudo easy_install virtualenv
 
 ## create a virtualenv with
@@ -82,7 +86,7 @@ sudo apt-get -y install python-setuptools
 
 # pip stuff here
 pip install --upgrade pip
-pip install --upgrade tensorflow
+#pip install --upgrade tensorflow
 
 #pip install pydbgen
 
@@ -139,7 +143,7 @@ npm install body-parser --save
 
 sudo npm install -g node-red
 #sudo npm install -g --unsafe-perm node-red
-sudo npm install -g node-red-node-mongodb
+#sudo npm install -g node-red-node-mongodb
 
 
 ### to install docker (as a system service )
@@ -170,4 +174,4 @@ conda update --all -y
 
 sudo apt -y --fix-broken install
 sudo apt -y autoremove
-apt list --upgradeable
+#sudo apt list --upgradeable
