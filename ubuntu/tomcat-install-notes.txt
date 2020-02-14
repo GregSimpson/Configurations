@@ -1,0 +1,109 @@
+https://linuxize.com/post/how-to-install-tomcat-9-on-ubuntu-18-04/
+
+
+sudo useradd -r -m -U -d /opt/tomcat -s /bin/false tomcat
+wget http://www-eu.apache.org/dist/tomcat/tomcat-9/v9.0.30/bin/apache-tomcat-9.0.30.tar.gz -P /tmp
+
+sudo tar xf /tmp/apache-tomcat-9*.tar.gz -C /opt/tomcat
+sudo ln -s /opt/tomcat/apache-tomcat-9.0.30 /opt/tomcat/latest
+ls -lart /opt/tomcat/*
+
+sudo chown -RH tomcat: /opt/tomcat/latest
+
+sudo sh -c 'chmod +x /opt/tomcat/latest/bin/*.sh'
+
+sudo gvim /etc/systemd/system/tomcat.service
+
+Modify the value of JAVA_HOME if the path to your Java installation is different.
+-- BEGIN paste this content --
+[Unit]
+Description=Tomcat 9 servlet container
+After=network.target
+
+[Service]
+Type=forking
+
+User=tomcat
+Group=tomcat
+
+Environment="JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64"
+
+Environment="JAVA_OPTS=-Djava.security.egd=file:///dev/urandom -Djava.awt.headless=true"
+
+Environment="CATALINA_BASE=/opt/tomcat/latest"
+Environment="CATALINA_HOME=/opt/tomcat/latest"
+Environment="CATALINA_PID=/opt/tomcat/latest/temp/tomcat.pid"
+Environment="CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC"
+
+ExecStart=/opt/tomcat/latest/bin/startup.sh
+ExecStop=/opt/tomcat/latest/bin/shutdown.sh
+
+[Install]
+WantedBy=multi-user.target
+-- END paste this content --
+
+
+Notify the systemd of a new file
+sudo systemctl daemon-reload
+
+Start tomcat with:
+sudo systemctl start tomcat
+
+Check the tomcat status
+sudo systemctl status tomcat
+
+If all is well, enable it at boot time
+sudo systemctl enable tomcat
+
+
+--- Configure Tomcat Web management Interface
+sudo gvim /opt/tomcat/latest/conf/tomcat-users.xml
+
+--  added these user/roles
+>
+   <role rolename="tomcat"/>
+   <role rolename="role1"/>
+   <user username="tomcat" password="password" roles="tomcat"/>
+   <user username="both" password="password" roles="tomcat,role1"/>
+   <user username="role1" password="password" roles="role1"/>
+
+   <role rolename="admin-gui"/>
+   <role rolename="manager-gui"/>
+
+
+To enable access to the web interface from anywhere open the following two files and comment or remove the VALVE entry
+
+sudo gvim /opt/tomcat/latest/webapps/manager/META-INF/context.xml
+sudo gvim /opt/tomcat/latest/webapps/host-manager/META-INF/context.xml
+
+sudo systemctl restart tomcat
+
+Open your browser and type: http://<your_domain_or_IP_address>:8080
+
+---------------------------------------------
+Wildfly notes
+https://wildfly.org/downloads/
+
+cd Downloads/
+sudo tar xf wildfly-18.0.1.Final.tar.gz -C /opt/wildfly/
+ln -s /opt/wildfly/wildfly-18.0.1.Final  latest
+
+#  in ~/.bash_aliases
+export WILDFLY_HOME='/opt/wildfly/latest'
+export PATH=$PATH:$WILDFLY_HOME/bin
+
+---------------------------------------------
+Maven Notes
+https://maven.apache.org/download.cgi
+
+cd Downloads/
+sudo tar xf apache-maven-3.6.3-bin.tar.gz -C /opt/maven
+ln -s /opt/maven/apache-maven-3.6.3/ latest
+
+#  in ~/.bash_aliases
+export MAVEN_HOME='/opt/maven/latest'
+export PATH=$PATH:$MAVEN_HOME/bin
+
+
+
+
