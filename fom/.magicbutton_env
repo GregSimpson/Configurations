@@ -1,9 +1,11 @@
 
-export RUNTIME_ENV=dce1
+export DEBUG_TIMING=enabled
 
 export MONGO_URL=10.12.4.127
 export MONGO_PORT=27017
 export MONGO_DB=hip-ops
+
+export NODERED_URL='http://localhost:1880/nodered'
 
 export POSTGRES_URL=ovpc1-pgsql01.clrygru5fh3l.us-west-2.rds.amazonaws.com
 export POSTGRES_USER=magicbuttonmerlin
@@ -11,5 +13,4 @@ export POSTGRES_PASS='$T00M@nySp3ll$InOn3Ye@r'
 export POSTGRES_PORT=5432
 export POSTGRES_DB=magicbutton
 
-export DEBUG_TIMING=enabled
-
+export RUNTIME_ENV=dce1

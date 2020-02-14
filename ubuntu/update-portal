@@ -6,7 +6,6 @@
 
 # https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04
 
-
 sudo rm /var/lib/dpkg/lock > /dev/null 2>&1
 sudo rm /var/lib/dpkg/lock-frontend > /dev/null 2>&1
 
@@ -28,11 +27,14 @@ sudo apt-get -y install --upgrade ipython
 sudo apt-get -y install --upgrade ipython-notebook
 
 
-sudo apt-get -y install --upgrade openjdk-11-jdk
+#sudo apt-get -y install --upgrade openjdk-11-jdk
+sudo apt-get -y install --upgrade openjdk-8-jdk
 sudo apt-get -y install --upgrade openvpn
 
 sudo apt-get -y install --upgrade libssl1.0-dev
 sudo apt-get -y install --upgrade libcanberra-gtk-module
+sudo apt-get -y install --upgrade libcanberra-gtk*
+
 #sudo apt-get -y install --upgrade mongodb-clients
 sudo apt-get -y install --upgrade net-tools
 sudo apt-get -y install --upgrade nodejs
@@ -42,17 +44,17 @@ sudo apt-get -y install --upgrade npm
 sudo apt-get -y install --upgrade perl
 #sudo apt-get -y install --upgrade postgresql
 #sudo apt-get -y install --upgrade postgresql-contrib
-sudo apt-get -y install postgresql postgresql-contrib
+#sudo apt-get -y install postgresql postgresql-contrib
 
 # gjs postgres notes here
 #  https://linuxize.com/post/how-to-install-postgresql-on-ubuntu-18-04/
 #  sudo -u postgres psql -c "SELECT version();"
 
-sudo apt-get install wget ca-certificates
-wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
-sudo apt-get -y install --upgrade pgadmin4
-sudo apt-get -y install --upgrade pgadmin4-apache2
+#sudo apt-get install wget ca-certificates
+#wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+#sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
+#sudo apt-get -y install --upgrade pgadmin4
+#sudo apt-get -y install --upgrade pgadmin4-apache2
 
 sudo apt-get -y install --upgrade putty
 sudo apt-get -y install --upgrade python-matplotlib
@@ -69,8 +71,8 @@ sudo apt-get -y install --upgrade unity-tweak-tool
 sudo apt-get -y install --upgrade vim-gtk
 sudo apt-get -y install --upgrade virtualbox-guest-dkms
 
-#sudo apt-get -y install --upgrade libcanberra-gtk-module
-sudo apt-get -y install --upgrade libcanberra-gtk*
+sudo apt-get -y install --upgrade zim
+
 
 
 # https://www.howtoopensource.com/2011/05/installation-of-virtualenv-in-linux
@@ -85,7 +87,7 @@ sudo apt-get -y install --upgrade libcanberra-gtk*
 # deactivate
 
 # pip stuff here
-pip install --upgrade pip
+#pip install --upgrade pip
 #pip install --upgrade tensorflow
 
 #pip install pydbgen
@@ -135,13 +137,13 @@ pip install --upgrade pip
 #./install
 
 
-sudo npm install -g -y nodemon
-sudo npm install -g newman
+#sudo npm install -g -y nodemon
+#sudo npm install -g newman
 
-npm install mongoose --save
-npm install body-parser --save
+#npm install mongoose --save
+#npm install body-parser --save
 
-sudo npm install -g node-red
+#sudo npm install -g node-red
 #sudo npm install -g --unsafe-perm node-red
 #sudo npm install -g node-red-node-mongodb
 
@@ -170,7 +172,87 @@ sudo npm install -g node-red
 # install anaconda
 #  https://linuxhint.com/install_anaconda_python_ubuntu_1804/
 #conda install anaconda-navigator
-conda update --all -y
+#conda update --all -y
+
+
+##wildfly (formerly jboss) install notes
+## from : https://vitux.com/install-and-configure-wildfly-jboss-on-ubuntu/
+##
+#sudo groupadd -r wildfly
+#sudo useradd -r -g wildfly -d /opt/wildfly -s /sbin/nologin wildfly
+## We will be now downloading the tar.gz for WildFly from the official JBoss website.
+## First, let us create a variable to define the version number of WildFly that we would like to download.
+#export Version_Number=18.0.1.Final
+#
+## I want to download version 16.0.0.Final now. This variable can be used in all the commands where you need to specify the WildFly version.
+## Run the following command to download the tar.gz file to a the /tmp folder of your Ubuntu.
+#wget https://download.jboss.org/wildfly/${Version_Number}/wildfly-${Version_Number}.tar.gz -P /tmp
+#
+#sudo tar xf /tmp/wildfly-${Version_Number}.tar.gz -C /opt/
+#sudo ln -s /opt/wildfly-${Version_Number} /opt/wildfly
+#sudo chown -RH wildfly: /opt/wildfly
+#
+#
+## configure it to run as a service
+#sudo mkdir -p /etc/wildfly
+#sudo cp /opt/wildfly/latest/docs/contrib/scripts/systemd/wildfly.conf /etc/wildfly/
+#
+##sudo gvim /etc/wildfly/wildfly.conf
+#
+#sudo cp /opt/wildfly/latest/docs/contrib/scripts/systemd/launch.sh /opt/wildfly/latest/bin/
+#sudo sh -c 'chmod +x /opt/wildfly/latest/bin/*.sh'
+#sudo cp /opt/wildfly/latest/docs/contrib/scripts/systemd/wildfly.service /etc/systemd/system/
+#
+##  use port 8081
+#cd /opt/wildfly/latest/standalone/configuration
+#sudo cp standalone.xml standalone.xml.orig
+#sudo gvim standalone.xml
+## -- change 8080 to 8081
+#
+#sudo systemctl daemon-reload
+#sudo systemctl start wildfly
+#sudo systemctl status wildfly
+#
+#sudo ufw allow 8080/tcp
+#sudo ufw allow 8081/tcp
+#
+#sudo /opt/wildfly/latest/bin/add-user.sh
+
+
+
+
+### Tomcat - modifications
+#sudo chmod -R g+rx /opt/tomcat/latest/bin/
+#sudo chmod -R g+r /opt/tomcat/latest/conf/
+#sudo chmod -R g+rx /opt/tomcat/latest/lib
+#sudo chmod -R g+w /opt/tomcat/latest/logs/
+#sudo chmod -R g+w /opt/tomcat/latest/temp
+#sudo chmod -R g+w /opt/tomcat/latest/webapps
+#sudo chmod -R g+w /opt/tomcat/latest/work
+#
+##Activate the sticky-bit for new files keep permissions defined:
+#sudo chmod -R g+s /opt/tomcat/latest/conf
+#sudo chmod -R g+s /opt/tomcat/latest/logs
+#sudo chmod -R g+s /opt/tomcat/latest/temp
+#sudo chmod -R g+s /opt/tomcat/latest/webapps
+#sudo chmod -R g+s /opt/tomcat/latest/work
+#
+#sudo chmod -R a+rx /opt/tomcat/latest/bin/
+#sudo chmod -R a+r /opt/tomcat/latest/conf/
+#sudo chmod -R a+rx /opt/tomcat/latest/lib
+#sudo chmod -R a+wr /opt/tomcat/latest/logs/
+#sudo chmod -R a+wr /opt/tomcat/latest/temp
+#sudo chmod -R a+wr /opt/tomcat/latest/webapps
+#sudo chmod -R a+wr /opt/tomcat/latest/work
+#
+##Activate the sticky-bit for new files keep permissions defined:
+#sudo chmod -R a+s /opt/tomcat/latest/conf
+#sudo chmod -R a+s /opt/tomcat/latest/logs
+#sudo chmod -R a+s /opt/tomcat/latest/temp
+#sudo chmod -R a+s /opt/tomcat/latest/webapps
+#sudo chmod -R a+s /opt/tomcat/latest/work
+
+
 
 sudo apt -y --fix-broken install
 sudo apt -y autoremove

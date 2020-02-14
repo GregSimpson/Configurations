@@ -1,0 +1,19 @@
+sudo systemctl status mongod
+---------- 20190826..12:42:11 ----------
+https://github.com/Studio3T/robomongo/releases
+---------- 20190826..12:52:12 ----------
+sudo -u postgres psql -c "SELECT version();"
+---------- 20190826..15:48:05 ----------
+mongo -u admin -p password  --authenticationDatabase admin
+robo3t &
+---------- 20190826..15:48:35 ----------
+sudo docker ps ; sudo docker ps -a ; sudo docker images
+---------- 20190826..15:49:46 ----------
+pgadmin4 : launch with pgadmin4&
+pgadmin4 : password is password
+pgadmin4 : http://127.0.0.1:37665/browser/
+---------- 20190827..11:30:21 ----------
+postgres : sudo -u postgres psql "hip-ops"
+postgres : \i gjs.sql
+---------- 20190827..11:37:04 ----------
+
