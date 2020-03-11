@@ -52,6 +52,7 @@ alias gb='git branch '
 alias gc='git commit '
 alias gcm='git commit -m '
 alias gd='git diff origin/develop'
+alias git_current_branch=' rev-parse --abbrev-ref HEAD'
 alias gm='git merge origin/develop'
 alias go='git checkout '
 
