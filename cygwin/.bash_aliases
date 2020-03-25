@@ -33,11 +33,31 @@ alias la='ls -a'
 alias b='cd ..'
 alias bashalias='gvim c:/cygwin64/home/eloy98104/.bash_aliases'
 alias home='cd /cygdrive/c/cygwin64/home/eloy98104'
+#alias ides='cd /cygdrive/c/gjs/git_stuff/portal/FrontEnd; idea64 pom.xml &; cd /cygdrive/c/gjs/git_stuff/portal/BackEnd; idea64 pom.xml &'
+alias ides='frontend ; backend'
+alias frontend='cd /cygdrive/c/gjs/git_stuff/portal/FrontEnd; idea64 pom.xml &'
+alias backend='cd /cygdrive/c/gjs/git_stuff/portal/BackEnd; idea64 pom.xml &'
 alias gitBranch='git clone --single-branch --branch develop https://github.com/humanifydev/HIP-Ops.git'
 alias gitDevelop='git reset --hard origin/develop'
 alias gjs='cd /cygdrive/c/gjs'
+alias findjava='grep -r "services" --include=*.java . --exclude=Test*.java'
 alias flow='pushd /cygdrive/c/cygwin64/home/eloy98104/.node-red'
 alias reminder='gvim c:/gjs/bin/reminders/.remember'
+
+## GIT aliases
+alias gs='git status '
+alias ga='git add '
+alias gaa='git add -A '
+alias gb='git branch '
+alias gc='git commit '
+alias gcm='git commit -m '
+alias gd='git diff origin/develop'
+alias git_current_branch=' rev-parse --abbrev-ref HEAD'
+alias gm='git merge origin/develop'
+alias go='git checkout '
+
+alias portalBE='mvn clean install -Dmaven.test.skip=true'
+alias portalFE='mvn clean package -Dmaven.test.skip=true'
 
 
 ##### https://www.tldp.org/LDP/abs/html/sample-bashrc.html
@@ -234,5 +254,9 @@ function repeat()       # Repeat n times command.
 
 # cd /cygdrive/c/gjs
 # cd /cygdrive/c/gjs/git_stuff/HIP-Ops/postgres/schema
-cd /cygdrive/c/gjs/git_stuff/HIP-Ops/nodeprojects/flows
-cd /cygdrive/c/gjs/git_stuff/HIP-Ops/nodered-docker-api-scripts
+#cd /cygdrive/c/gjs/git_stuff/HIP-Ops/nodeprojects/flows
+#cd /cygdrive/c/gjs/git_stuff/HIP-Ops/nodered-docker-api-scripts
+#cd /cygdrive/c/gjs/git_stuff/HIP-Ops/node-ms/api-ms
+#cd /cygdrive/c/gjs/git_stuff/Fail-Over-Manager/python
+#cd /cygdrive/c/gjs/git_stuff/Fail-Over-Manager/postgres
+cd /cygdrive/c/gjs/git_stuff/portal/FrontEnd

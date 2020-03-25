@@ -1,0 +1,41 @@
+#!/bin/bash
+(set -o igncr) 2>/dev/null && set -o igncr; # comment is needed
+
+LOG_DATE_STAMP=`eval date '+%Y%m%d..%H:%M:%S'`
+echo "---------- $LOG_DATE_STAMP ----------" 
+
+#mintty bash -c "oddnumbers; read -p \"Press enter to close this window.\"" &
+
+## --- FRONTEND --- ##
+# background git pull for the frontend
+#mintty bash -c "frontend; read -p \"Press enter to close this window.\"" &
+mintty bash -c "frontend" &
+
+## --- BACKEND --- ##
+# git pull for BackEnd
+cd /cygdrive/c/gjs/git_stuff/portal/BackEnd
+git pull
+
+# backend maven build
+cd /cygdrive/c/gjs/git_stuff/portal/BackEnd
+mvn clean install -Dmaven.test.skip=true
+
+# launch intellij with backend project
+echo " launching BACKend ide"
+cd /cygdrive/c/gjs/git_stuff/portal/BackEnd
+idea64 pom.xml &
+
+
+## --- FRONTEND --- ##
+# frontend maven build
+cd /cygdrive/c/gjs/git_stuff/portal/FrontEnd
+mvn clean package -Dmaven.test.skip=true
+
+# launch intellij with frontend project
+echo " launching FRONTend ide"
+cd /cygdrive/c/gjs/git_stuff/portal/FrontEnd
+idea64 pom.xml &
+
+
+exit 0
+
