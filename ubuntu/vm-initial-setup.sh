@@ -9,7 +9,7 @@
 
 
 BIN_DIR=~/bin
-GIT_DIR=~/gjs/git-stuff
+GIT_DIR=~/git_stuff
 CLONE_DIR=${GIT_DIR}/Configurations/ubuntu
 GIT_UBUNTU=${GIT_DIR}/Configurations/ubuntu
 REMEMBER_DIR=${BIN_DIR}/reminders
