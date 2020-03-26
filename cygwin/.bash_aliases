@@ -41,6 +41,7 @@ alias gitBranch='git clone --single-branch --branch develop https://github.com/h
 alias gitDevelop='git reset --hard origin/develop'
 alias gjs='cd /cygdrive/c/gjs'
 alias findjava='grep -r "services" --include=*.java . --exclude=Test*.java'
+#alias findall=' grep -wrl "Server Name" --include=*.java --include=*.js --include=*.jsp --include=*.prop* --exclude-dir=target .'
 alias flow='pushd /cygdrive/c/cygwin64/home/eloy98104/.node-red'
 alias reminder='gvim c:/gjs/bin/reminders/.remember'
 
@@ -110,6 +111,22 @@ alias kk='ll'
 #-------------------------------------------------------------
 # A few fun ones
 #-------------------------------------------------------------
+
+# example with a cmd line arg
+myfunction() {
+    #do things with parameters like $1 such as
+    mv "$1" "$1.bak"
+    cp "$2" "$1"
+}
+
+# grep for a string
+#alias findall=' grep -wrl "Server Name" --include=*.java --include=*.js --include=*.jsp --include=*.prop* --exclude-dir=target .'
+#alias findjava='grep -r "services" --include=*.java . --exclude=Test*.java'
+findall() {
+	findme="$1"
+	grep -wrl "$findme" --include=*.java --include=*.js --include=*.jsp --include=*.html --include=*.prop* --exclude-dir=target .
+}
+
 
 # https://superuser.com/questions/362227/how-to-change-the-title-of-the-mintty-window
 function settitle() {
