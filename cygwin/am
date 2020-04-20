@@ -4,6 +4,8 @@
 LOG_DATE_STAMP=`eval date '+%Y%m%d..%H:%M:%S'`
 echo "---------- $LOG_DATE_STAMP ----------" 
 
+git saveme
+
 #mintty bash -c "oddnumbers; read -p \"Press enter to close this window.\"" &
 
 ## --- FRONTEND --- ##
@@ -18,7 +20,7 @@ git pull
 
 # backend maven build
 cd /cygdrive/c/gjs/git_stuff/portal/BackEnd
-mvn clean install -Dmaven.test.skip=true
+mvn clean install -U -Dmaven.test.skip=true
 
 # launch intellij with backend project
 echo " launching BACKend ide"
@@ -27,9 +29,15 @@ idea64 pom.xml &
 
 
 ## --- FRONTEND --- ##
+# frontend install grunt
+cd /cygdrive/c/gjs/git_stuff/portal/FrontEnd/portal
+npm install -g grunt-cli
+npm install grunt --save-dev
+grunt
+
 # frontend maven build
 cd /cygdrive/c/gjs/git_stuff/portal/FrontEnd
-mvn clean package -Dmaven.test.skip=true
+mvn clean package -U -Dmaven.test.skip=true
 
 # launch intellij with frontend project
 echo " launching FRONTend ide"
