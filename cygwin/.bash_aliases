@@ -122,9 +122,23 @@ myfunction() {
 # grep for a string
 #alias findall=' grep -wrl "Server Name" --include=*.java --include=*.js --include=*.jsp --include=*.prop* --exclude-dir=target .'
 #alias findjava='grep -r "services" --include=*.java . --exclude=Test*.java'
-findall() {
+##findall() {
+##	findme="$1"
+##	#grep -wrl "$findme" --include=*.java --include=*.xml --include=*.js --include=*.jsp --include=*.html --include=*.prop* --include=*.sql --exclude-dir=target .
+##	grep -wrl "$findme" --include=*.java --include=*.xml --include=*.js --include=*.jsp --include=*.html --include=*.prop* --include=*.sql --exclude-dir=target --exclude-dir=dist .
+##}
+
+FIND_TARGET_INCLUDES="--include=*.java --include=*.xml --include=*.js --include=*.jsp --include=*.html --include=*.prop* --include=*.sql "
+FIND_TARGET_EXCLUDES=" --exclude-dir=target --exclude-dir=dist "
+FIND_TARGET_STARTDIR=" ."
+findfiles() {
 	findme="$1"
-	grep -wrl "$findme" --include=*.java --include=*.js --include=*.jsp --include=*.html --include=*.prop* --exclude-dir=target .
+	grep -wrl "$findme" ${FIND_TARGET_INCLUDES} ${FIND_TARGET_EXCLUDES} ${FIND_TARGET_STARTDIR}
+}
+
+findlines() {
+	findme="$1"
+	grep -wr "$findme" ${FIND_TARGET_INCLUDES} ${FIND_TARGET_EXCLUDES} ${FIND_TARGET_STARTDIR}
 }
 
 
