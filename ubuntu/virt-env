@@ -1,0 +1,34 @@
+# https://www.howtoopensource.com/2011/05/installation-of-virtualenv-in-linux
+#sudo apt-get -y install python-setuptools
+#sudo easy_install virtualenv
+
+## create a virtualenv with
+# virtualenv -p python python3 <somename>
+#virtualenv -p python python3 virt-js
+## launch a virtualenv with
+# source ~/bin/<somename>/bin/activate
+#source ~/bin/virt-js/bin/activate
+## stop a virtualenv
+# deactivate
+
+# https://tech.serhatteker.com/post/2018-12/virtualenv/
+#install pip3 if you don’t have already
+#sudo apt-get install python3-pip
+#
+
+#https://www.linode.com/docs/development/python/create-a-python-virtualenv-on-ubuntu-18-04/
+sudo apt install virtualenv
+mkdir ~/python-environments && cd ~/python-environments
+
+#install virtualenv
+sudo pip3 install virtualenv
+
+#build new virtualenv - CHANGE env TO SOME NAME
+virtualenv --python=python3 env
+ls env/lib  # should see python3.6
+source env/bin/activate
+deactivate
+
+
+
+
