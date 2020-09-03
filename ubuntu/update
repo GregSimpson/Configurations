@@ -67,6 +67,7 @@ sudo apt-get -y install --upgrade python3-pandas
 sudo apt-get -y install --upgrade python-setuptools
 
 sudo apt-get -y install --upgrade rpm
+sudo apt-get -y install --upgrade simplescreenrecorder
 sudo apt-get -y install --upgrade tree
 sudo apt-get -y install --upgrade unity-tweak-tool
 sudo apt-get -y install --upgrade vim-gtk
