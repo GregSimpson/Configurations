@@ -8,6 +8,7 @@ sudo apt-get -y update
 sudo apt-get -y upgrade
 sudo apt -y --fix-broken install
 
+sudo apt-get -y install --upgrade pgadmin3
 sudo apt-get -y install --upgrade postgresql
 sudo apt-get -y install --upgrade postgresql-contrib
 
@@ -90,6 +91,9 @@ sudo apt-get -y install --upgrade postgresql-contrib
 # 
 # sammy=# \conninfo
 #
+
+pgadmin3 & #  crashes a lot
+psql
 
 
 
