@@ -1,0 +1,15 @@
+" Vim with all enhancements
+"  on linux : /etc/vim/vimrc.local
+
+set ic
+
+" from https://www.linuxquestions.org/questions/linux-newbie-8/gvim-cut-copy-paste-374760/
+nmap <C-V> "+gP
+imap <C-V> <ESC><C-V>i
+vmap <C-C> "+y
+
+" from https://www.shortcutfoo.com/blog/top-50-vim-configuration-options/ 
+" : The number of screen columns to keep to the left and right of the cursor
+set sidescrolloff=5 
+set number
+
