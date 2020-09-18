@@ -30,14 +30,45 @@ alias lA='ls -A'                              # all but . and ..
 alias la='ls -a'
 
 # my stuff
+alias icCallmeAnalyticsController='cp "C:\Users\eloy98104\OneDrive - TeleTech Holdings, Inc\git_branch_storage\portal\FrontEnd\22761_bug_am_ftp_test\portal\src\main\java\com\ttec\prototype\icCallmeAnalyticsController.java" "C:\gjs\git_stuff\portal\FrontEnd\portal\src\main\java\com\ttec\prototype\IcCallmeAnalyticsController.java" ; git status'
 alias b='cd ..'
+alias backend='cd /cygdrive/c/gjs/git_stuff/portal/BackEnd; idea64 pom.xml &'
 alias bashalias='gvim c:/cygwin64/home/eloy98104/.bash_aliases'
-alias home='cd /cygdrive/c/cygwin64/home/eloy98104'
-alias gitBranch='git clone --single-branch --branch develop https://github.com/humanifydev/HIP-Ops.git'
-alias gitDevelop='git reset --hard origin/develop'
-alias gjs='cd /cygdrive/c/gjs'
+alias ides='frontend ; backend'
+alias escrow='cd "C:/Users/eloy98104/OneDrive - TeleTech Holdings, Inc/PortalProject/externalDeliverables/escrow"'
+alias frontend='cd /cygdrive/c/gjs/git_stuff/portal/FrontEnd; idea64 pom.xml &'
+alias findjava='grep -r "services" --include=*.java . --exclude=Test*.java'
+#alias findall=' grep -wrl "Server Name" --include=*.java --include=*.js --include=*.jsp --include=*.prop* --exclude-dir=target .'
 alias flow='pushd /cygdrive/c/cygwin64/home/eloy98104/.node-red'
+alias gitBranch='git clone --single-branch --branch develop https://github.com/humanifydev/HIP-Ops.git'
+#alias gitDevelop='git reset --hard origin/develop; git status'
+alias gitDevelop='git reset --hard origin/develop; git status'
+alias gitDevelopFE='git reset --hard origin/develop; gitTmpPom; git status'
+alias gitTmpPom='cp /cygdrive/c/gjs/git_stuff/portalFE-pom.xml /cygdrive/c/gjs/git_stuff/portal/FrontEnd/pom.xml'
+alias gitStatus='git status|grep -v icCallMe-CLI'
+alias gjs='cd /cygdrive/c/gjs'
+alias home='cd /cygdrive/c/cygwin64/home/eloy98104'
+alias tomcat_logs='cd /cygdrive/c/Users/eloy98104/AppData/Local/JetBrains/IntelliJIdea2020.2/tomcat/Unnamed_FrontEndProjects/logs'
+alias wildfly_logs='cd /cygdrive/c/gjs/wildfly/wildfly-19.1.0.Final/standalone/log'
+#alias ides='cd /cygdrive/c/gjs/git_stuff/portal/FrontEnd; idea64 pom.xml &; cd /cygdrive/c/gjs/git_stuff/portal/BackEnd; idea64 pom.xml &'
+alias oned='cd "C:/Users/eloy98104/OneDrive - TeleTech Holdings, Inc/PortalProject"'
 alias reminder='gvim c:/gjs/bin/reminders/.remember'
+
+## GIT aliases
+alias gs='git status '
+alias ga='git add '
+alias gaa='git add -A '
+alias gb='git branch '
+alias gc='git commit '
+alias gcm='git commit -m '
+alias gd='git diff origin/develop'
+alias git_current_branch=' rev-parse --abbrev-ref HEAD'
+alias gm='git merge origin/develop'
+alias go='git checkout '
+
+alias mvnd='mvn dependency:tree -Dverbose > deptree; more deptree'
+alias portalBE='mvn clean install -Dmaven.test.skip=true'
+alias portalFE='mvn clean package -Dmaven.test.skip=true'
 
 
 ##### https://www.tldp.org/LDP/abs/html/sample-bashrc.html
@@ -90,6 +121,43 @@ alias kk='ll'
 #-------------------------------------------------------------
 # A few fun ones
 #-------------------------------------------------------------
+
+# example with a cmd line arg
+myfunction() {
+    #do things with parameters like $1 such as
+    mv "$1" "$1.bak"
+    cp "$2" "$1"
+}
+
+# grep for a string
+#alias findall=' grep -wrl "Server Name" --include=*.java --include=*.js --include=*.jsp --include=*.prop* --exclude-dir=target .'
+#alias findjava='grep -r "services" --include=*.java . --exclude=Test*.java'
+##findall() {
+##	findme="$1"
+##	#grep -wrl "$findme" --include=*.java --include=*.xml --include=*.js --include=*.jsp --include=*.html --include=*.prop* --include=*.sql --exclude-dir=target .
+##	grep -wrl "$findme" --include=*.java --include=*.xml --include=*.js --include=*.jsp --include=*.html --include=*_en.*  --include=*.prop* --include=*.sql --exclude-dir=target --exclude-dir=dist .
+##}
+
+FIND_TARGET_INCLUDES="--include=*.java --include=*.xml --include=*.js --include=*.jsp --include=*.html --include=*_en.* --include=*.prop* --include=*.sql "
+FIND_TARGET_EXCLUDES=" --exclude-dir=target --exclude-dir=dist --exclude-dir=.idea --exclude-dir=test --exclude-dir=node "
+#FIND_TARGET_EXCLUDES="  --exclude-dir=dist --exclude-dir=.idea --exclude-dir=test --exclude-dir=node "
+FIND_TARGET_STARTDIR=" ."
+findfiles() {
+	findme="$1"
+	#clear; grep -irl "$findme" ${FIND_TARGET_INCLUDES} ${FIND_TARGET_EXCLUDES} ${FIND_TARGET_STARTDIR} | more
+	clear; grep -wrl "$findme" ${FIND_TARGET_INCLUDES} ${FIND_TARGET_EXCLUDES} ${FIND_TARGET_STARTDIR} 
+}
+
+findlines() {
+	findme="$1"
+	clear; grep -r "$findme" ${FIND_TARGET_INCLUDES} ${FIND_TARGET_EXCLUDES} ${FIND_TARGET_STARTDIR} 
+}
+
+findlinesic() {
+	findme="$1"
+	clear; grep -ir "$findme" ${FIND_TARGET_INCLUDES} ${FIND_TARGET_EXCLUDES} ${FIND_TARGET_STARTDIR} 
+}
+
 
 # https://superuser.com/questions/362227/how-to-change-the-title-of-the-mintty-window
 function settitle() {
@@ -234,5 +302,9 @@ function repeat()       # Repeat n times command.
 
 # cd /cygdrive/c/gjs
 # cd /cygdrive/c/gjs/git_stuff/HIP-Ops/postgres/schema
-cd /cygdrive/c/gjs/git_stuff/HIP-Ops/nodeprojects/flows
-cd /cygdrive/c/gjs/git_stuff/HIP-Ops/nodered-docker-api-scripts
+#cd /cygdrive/c/gjs/git_stuff/HIP-Ops/nodeprojects/flows
+#cd /cygdrive/c/gjs/git_stuff/HIP-Ops/nodered-docker-api-scripts
+#cd /cygdrive/c/gjs/git_stuff/HIP-Ops/node-ms/api-ms
+#cd /cygdrive/c/gjs/git_stuff/Fail-Over-Manager/python
+#cd /cygdrive/c/gjs/git_stuff/Fail-Over-Manager/postgres
+cd /cygdrive/c/gjs/git_stuff/portal/FrontEnd
