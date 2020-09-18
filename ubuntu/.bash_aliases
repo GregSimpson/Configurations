@@ -1,3 +1,18 @@
+# add ~/bin to path
+export PATH=$PATH:~/bin
+#export CATALINA_HOME='/opt/tomcat/latest'
+#export CATALINA_BASE=$CATALINA_HOME
+export JAVA_HOME='/usr/lib/jvm/java-8-openjdk-amd64'
+export MAVEN_HOME='/opt/maven/latest'
+export WILDFLY_HOME='/opt/wildfly/latest'
+
+#export PATH=$PATH:$CATALINA_HOME/bin
+export PATH=$PATH:$JAVA_HOME/bin
+export PATH=$PATH:$MAVEN_HOME/bin
+export PATH=$PATH:$WILDFLY_HOME/bin
+
+
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -5,10 +20,16 @@ alias l='ls -CF'
 
 # my aliases
 alias b='cd ..'
+alias ducks='du -cks * |sort -rn |head -11'
+alias free='free -ht'
 alias gitDevelop='git clone -b develop  https://github.com/humanifydev/HIP-Ops.git'
 alias gitBranch='git clone --single-branch --branch develop https://github.com/humanifydev/HIP-Ops.git'
-alias gitDevelop='git reset --hard origin/develop'
+alias gitReset='git reset --hard origin/develop'
 alias hipops_env='env|grep MON; env|grep POST; env|grep RUNTIME'
+alias mavenBE='mvn clean install -Dmaven.test.skip=true'
+alias mavenFE='mvn clean package -Dmaven.test.skip=true'
+alias mountshare='sudo mount -t vboxsf vboxSharedDrive /home/gsimpson/vboxSharedDrive/'
+alias tc_logs='cd ${CATALINA_BASE}/logs'
 alias virt='source ~/bin/anacondaPython3/bin/activate'
 alias virtx='deactivate'
 
@@ -248,5 +269,7 @@ function repeat()       # Repeat n times command.
 
 
 #cd /home/hipops-dev/git_stuff/HIP-Ops
-cd /opt/HIP-Ops
+#cd /opt/HIP-Ops
+cd /home/gsimpson/git-stuff/portal
+
 

@@ -1,0 +1,147 @@
+
+# https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04
+
+
+sudo rm /var/lib/dpkg/lock > /dev/null 2>&1
+sudo rm /var/lib/dpkg/lock-frontend > /dev/null 2>&1
+
+sudo apt-get -y update
+sudo apt-get -y upgrade
+
+sudo apt-get -y install --upgrade alien
+sudo apt-get -y install --upgrade cups-pdf
+sudo apt-get -y install --upgrade curl
+sudo apt-get -y install --upgrade docker
+sudo apt-get -y install --upgrade docker-compose
+sudo apt-get -y install --upgrade docker.io
+sudo apt-get -y install --upgrade dos2unix
+sudo apt-get -y install --upgrade flashplugin-installer
+sudo apt-get -y install --upgrade git
+
+sudo apt-get -y install --upgrade openjdk-11-jdk
+
+sudo apt-get -y install --upgrade libssl1.0-dev
+sudo apt-get -y install --upgrade libcanberra-gtk-module
+sudo apt-get -y install --upgrade mongodb-clients
+sudo apt-get -y install --upgrade net-tools
+sudo apt-get -y install --upgrade nodejs
+sudo apt-get -y install --upgrade node-gyp
+sudo apt-get -y install --upgrade npm
+
+sudo apt-get -y install --upgrade perl
+#sudo apt-get -y install --upgrade postgresql
+#sudo apt-get -y install --upgrade postgresql-contrib
+#sudo apt install postgresql postgresql-contrib
+
+# gjs postgres notes here
+#  https://linuxize.com/post/how-to-install-postgresql-on-ubuntu-18-04/
+#  sudo -u postgres psql -c "SELECT version();"
+
+sudo apt-get -y install wget ca-certificates
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
+sudo apt-get -y install --upgrade pgadmin4
+sudo apt-get -y install --upgrade pgadmin4-apache2
+
+sudo apt-get -y install --upgrade putty
+sudo apt-get -y install --upgrade python-virtualenv python-pip
+sudo apt-get -y install --upgrade rpm
+sudo apt-get -y install --upgrade unity-tweak-tool
+sudo apt-get -y install --upgrade vim-gtk
+sudo apt-get -y install --upgrade virtualbox-guest-dkms
+
+# https://www.howtoopensource.com/2011/05/installation-of-virtualenv-in-linux
+sudo apt-get -y install python-setuptools
+# sudo easy_install virtualenv
+
+## create a virtualenv with
+# virtualenv -p python python3 <somename>
+## launch a virtualenv with
+# source ~/bin/<somename>/bin/activate
+## stop a virtualenv
+# deactivate
+
+# pip stuff here
+#pip install pydbgen
+
+# mongodb install steps here
+
+##  DID work
+## https://askubuntu.com/questions/748789/run-mongodb-service-as-daemon-of-systemd-on-ubuntu-15-10
+#sudo apt-get remove -y mongodb-org
+#sudo apt-get -y install --upgrade mongodb-org
+
+##After installing MongoDB, the commands below can be used to stop, start and enable MongoDB to automatically startup when the systems boots up.
+
+#sudo systemctl stop mongod.service
+#sudo systemctl start mongod.service
+#sudo systemctl enable mongod.service
+
+##By default, MongoDB listens on port 27017.. after installing, the local server should be able to communicate with MongoDB.. to verify whether MongoDB is running and active, run the commands below:
+
+#sudo systemctl status mongod
+
+##  to setup a user/pswd for mongo, I followed these steps:
+##  https://websiteforstudents.com/install-mongodb-on-ubuntu-18-04-lts-beta-server/
+##
+#mongo --host 127.0.0.1:27017
+#use admin
+#db.createUser({user:"admin", pwd:"password", roles:[{role:"root", db:"admin"}]})
+#db.createUser({user:"hip-ops", pwd:"308D9EA9A255-310B-5C64-251C-18941CC2", roles:[{role:"root", db:"admin"}]})
+
+##  add "--auth"
+#sudo gvim /lib/systemd/system/mongod.service
+
+#sudo systemctl daemon-reload
+#sudo service mongod restart
+
+#mongo -u admin -p password  --authenticationDatabase admin
+#mongo -u hip-ops -p 308D9EA9A255-310B-5C64-251C-18941CC2 --authenticationDatabase admin
+
+##  robo 3t install
+## https://github.com/Studio3T/robomongo/releases/tag/v1.2.1
+###sudo apt-get install qt5-qmake libqt5core5a qtbase5-dev mongodb-dev libmongo-client-dev libboost-dev libpcre3-dev  libmozjs-24-dev qtbase5-dev-tools qt5-qmake qt5-default
+#sudo apt-get install qt5-qmake libqt5core5a qtbase5-dev mongodb-dev libmongo-client-dev libboost-dev libpcre3-dev qtbase5-dev-tools qt5-qmake qt5-default
+ #
+#sudo apt remove -y cmake
+#sudo apt install -y cmake
+#cd /home/hipops-dev/robomongo-1.2.1/bin
+#./install
+
+
+sudo npm install -g -y nodemon
+sudo npm install -g newman
+
+npm install mongoose --save
+npm install body-parser --save
+
+sudo npm install -g node-red
+#sudo npm install -g --unsafe-perm node-red
+sudo npm install -g node-red-node-mongodb
+
+
+### to install docker (as a system service )
+## https://linuxize.com/post/how-to-install-and-use-docker-on-ubuntu-18-04/
+## Start by updating the packages list and installing the dependencies necessary to add a new repository over HTTPS:
+#sudo apt-get -y update
+#sudo apt-get -y install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+## Import the repository’s GPG key using the following curl command:
+#curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+## Add the Docker APT repository to your system:
+#sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+# To install the latest version of Docker use the command below.
+#sudo apt-get -y update
+#sudo apt-get -y install docker-ce
+
+
+#Once the installation is completed the Docker service will start automatically. You can verify it by typing:
+#sudo systemctl status docker
+
+
+#snap install postman
+
+
+
+sudo apt -y --fix-broken install
+sudo apt -y autoremove
+sudo apt list --upgradeable

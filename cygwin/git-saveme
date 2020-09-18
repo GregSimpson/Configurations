@@ -1,0 +1,67 @@
+#!/bin/bash
+(set -o igncr) 2>/dev/null && set -o igncr; # comment is needed
+
+SOURCE_BASE_DIR="C:/gjs/git_stuff"
+TARGET_BASE_DIR="C:/Users/eloy98104/OneDrive - TeleTech Holdings, Inc/git_branch_storage"
+
+# source code dirs
+SRC_CODE_LIST="portal/FrontEnd
+portal/BackEnd
+Fail-Over-Manager"
+
+display_usage() { 
+	SCRIPT_NAME=`basename "$0"`
+	echo -e "\tExample Usage:"
+	echo -e "\t\t${SCRIPT_NAME}\n"
+	exit 1
+	} 
+
+
+LOG_DATE_STAMP=`eval date '+%Y%m%d..%H:%M:%S'`
+echo "---------- $LOG_DATE_STAMP ----------" 
+
+
+
+# check that src dirs exist
+for EACH_DIR in ${SRC_CODE_LIST}
+do
+	SRC_DIR=${SOURCE_BASE_DIR}/${EACH_DIR}
+	if [ ! -d "${SRC_DIR}" ];
+	then
+		echo -e "\nsource dir  ${SRC_DIR} does not exist"
+		display_usage
+	else
+		echo -e "\nusing source dir ${SRC_DIR}\n\tsaving to:\t${TARGET_BASE_DIR}"
+		cd ${SRC_DIR}
+
+		GIT_BRANCH=`git rev-parse --abbrev-ref HEAD`
+		if [ $? -eq 0 ]; then
+			echo -e "\n\t####################################################\n"
+			echo -e "\tCurrent git branch:: ${GIT_BRANCH}"
+		else
+			echo -e "\nFailed to get current git branch"
+			echo FAIL
+			display_usage
+		fi
+
+		TARGET_DIRECTORY=${TARGET_BASE_DIR}/${EACH_DIR}/${GIT_BRANCH}
+		
+		#  see what is modified
+		echo -e "\tchecking GIT status"
+		#RELATIVE_FILES=`git status | grep "modified" | awk '{print $2}' `
+		RELATIVE_FILES=`git status --porcelain | fgrep -e" M " -e"?? " | awk '{print $2}' `
+		
+		#  copy them to ${TARGET_DIRECTORY}
+		for EACH_FILE in ${RELATIVE_FILES}
+		do
+			TARGET_MKDIR="${TARGET_DIRECTORY}/`dirname ${EACH_FILE}`"
+			echo -e "\n\tmkdir -p ${TARGET_MKDIR}"
+			mkdir -p "${TARGET_MKDIR}"
+
+			echo -e "\t\tcp -u ${EACH_FILE}\n\t\t${TARGET_MKDIR}/`basename ${EACH_FILE}`"
+			cp -u ${EACH_FILE} "${TARGET_MKDIR}/`basename ${EACH_FILE}`"
+			echo -e "\t----------------------------------------------------"
+		done
+	fi
+done
+

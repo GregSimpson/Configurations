@@ -1,0 +1,11 @@
+#!/bin/bash
+(set -o igncr) 2>/dev/null && set -o igncr; # comment is needed
+
+LOG_DATE_STAMP=`eval date '+%Y%m%d..%H:%M:%S'`
+echo "---------- $LOG_DATE_STAMP ----------" 
+
+#git pull for FrontEnd
+cd /cygdrive/c/gjs/git_stuff/portal/FrontEnd
+git pull
+
+exit 0

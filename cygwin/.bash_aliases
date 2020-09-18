@@ -44,6 +44,7 @@ alias gitBranch='git clone --single-branch --branch develop https://github.com/h
 #alias gitDevelop='git reset --hard origin/develop; git status'
 alias gitDevelop='git reset --hard origin/develop; git status'
 alias gitDevelopFE='git reset --hard origin/develop; gitTmpPom; git status'
+#alias gitDevelop='git reset --hard origin/develop; gitTmpPom; git status'
 alias gitTmpPom='cp /cygdrive/c/gjs/git_stuff/portalFE-pom.xml /cygdrive/c/gjs/git_stuff/portal/FrontEnd/pom.xml'
 alias gitStatus='git status|grep -v icCallMe-CLI'
 alias gjs='cd /cygdrive/c/gjs'
