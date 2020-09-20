@@ -8,9 +8,32 @@ sudo apt-get -y update
 sudo apt-get -y upgrade
 sudo apt -y --fix-broken install
 
-sudo apt-get -y install --upgrade pgadmin3
+# sudo apt-get -y install --upgrade pgadmin3
+# 3 sucked - I installed 4
+# https://www.tecmint.com/install-postgresql-and-pgadmin-in-ubuntu/
+
+# curl https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo apt-key add
+# sudo sh -c 'echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
+sudo apt-get -y install --upgrade pgadmin4
+# sudo /usr/pgadmin4/bin/setup-web.sh
 sudo apt-get -y install --upgrade postgresql
 sudo apt-get -y install --upgrade postgresql-contrib
+
+# https://itsfoss.com/install-postgresql-ubuntu/
+apt show postgresql
+service postgresql status
+
+# sudo su postgres
+# \l
+# \du
+# q
+# ALTER USER postgres WITH PASSWORD 'password';
+# CREATE USER gsimpson WITH PASSWORD 'password';
+# ALTER USER gsimpson WITH PASSWORD 'password';
+# ALTER USER gsimpson WITH SUPERUSER;
+# SHOW port;
+
+
 
 # gjs postgres config notes here
 # sudo -u postgres psql -c "SELECT version();"
