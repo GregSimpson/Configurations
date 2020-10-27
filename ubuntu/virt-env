@@ -18,7 +18,9 @@
 
 #https://www.linode.com/docs/development/python/create-a-python-virtualenv-on-ubuntu-18-04/
 sudo apt install virtualenv
-mkdir ~/python-environments && cd ~/python-environments
+mkdir -p ~/python-environments && cd ~/python-environments
+
+sudo apt install python3-pip
 
 #install virtualenv
 sudo pip3 install virtualenv
