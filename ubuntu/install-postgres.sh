@@ -115,7 +115,8 @@ service postgresql status
 # sammy=# \conninfo
 #
 
-pgadmin3 & #  crashes a lot
+#pgadmin3 & #  crashes a lot
+pgadmin4 &
 psql
 
 

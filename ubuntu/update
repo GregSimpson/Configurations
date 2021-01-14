@@ -80,12 +80,22 @@ sudo pip3 install pyodbc
 
 sudo apt-get -y install --upgrade rpm
 sudo apt-get -y install --upgrade simplescreenrecorder
+sudo apt-get -y install --upgrade snapd
 sudo apt-get -y install --upgrade tree
 sudo apt-get -y install --upgrade unity-tweak-tool
 sudo apt-get -y install --upgrade vim-gtk
 sudo apt-get -y install --upgrade virtualbox-guest-dkms
 
 sudo apt-get -y install --upgrade zim
+sudo apt-get -y install --upgrade wget
+
+# to install google chrome
+# https://linuxhint.com/ubuntu_20-04_google_chrome_installation_guide/
+# wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+# sudo dpkg -i google-chrome-stable_current_amd64.deb
+# google-chrome
+
+#
 
 #https://www.linode.com/docs/development/python/create-a-python-virtualenv-on-ubuntu-18-04/
 #install virtualenv
@@ -110,22 +120,44 @@ mkdir ~/python-environments && cd ~/python-environments
 
 #pip install pydbgen
 
-# mongodb install steps here
 
-##  DID work
-## https://askubuntu.com/questions/748789/run-mongodb-service-as-daemon-of-systemd-on-ubuntu-15-10
-#sudo apt-get remove -y mongodb-org
-#sudo apt-get -y install --upgrade mongodb-org
+#  MONGO setup BEGIN
+# mongo on ubuntu 20
+# https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-ubuntu-20-04 
+#
+#To start, import the public GPG key for the latest stable version of MongoDB 
+# curl -fsSL https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+# apt-key list
 
-##After installing MongoDB, the commands below can be used to stop, start and enable MongoDB to automatically startup when the systems boots up.
+# Run the following command, which creates a file in the sources.list.d directory named 
+# mongodb-org-4.4.list. The only content in this file is a single line reading 
+#    deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse:
+#
+# echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
 
-#sudo systemctl stop mongod.service
+sudo apt update
+sudo apt-get -y install --upgrade mongodb-org
+
+##After installing MongoDB, the commands below can be used to stop, 
+#   start and enable MongoDB to automatically startup when the systems boots up.
 #sudo systemctl start mongod.service
-#sudo systemctl enable mongod.service
-
-##By default, MongoDB listens on port 27017.. after installing, the local server should be able to communicate with MongoDB.. to verify whether MongoDB is running and active, run the commands below:
-
+#sudo systemctl restart mongod.service
+#sudo systemctl stop mongod.service
+#sudo systemctl enable mongod.service #startup at boottime
+#mongo --eval 'db.runCommand({ connectionStatus: 1 })' # check status
+# 
+#sudo systemctl disable mongod # to disable boottime start
+#sudo systemctl enable mongod  # to re-enable boottime
+#
+# 
+##By default, MongoDB listens on port 27017.. after installing, the local server 
+#   should be able to communicate with MongoDB.. to verify whether MongoDB 
+#      is running and active, run the commands below:
 #sudo systemctl status mongod
+
+# To enable free monitoring, run the following command: db.enableFreeMonitoring()
+# To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+#
 
 ##  to setup a user/pswd for mongo, I followed these steps:
 ##  https://websiteforstudents.com/install-mongodb-on-ubuntu-18-04-lts-beta-server/
@@ -133,36 +165,83 @@ mkdir ~/python-environments && cd ~/python-environments
 #mongo --host 127.0.0.1:27017
 #use admin
 #db.createUser({user:"admin", pwd:"password", roles:[{role:"root", db:"admin"}]})
-#db.createUser({user:"hip-ops", pwd:"308D9EA9A255-310B-5C64-251C-18941CC2", roles:[{role:"root", db:"admin"}]})
+# db.grantRolesToUser(
+#    "admin",
+#    [ "readWrite" , { role: "userAdminAnyDatabase", db: "admin" }, "readWriteAnyDatabase" ],
+#    { w: "majority" , wtimeout: 4000 }
+# )
 
-##  add "--auth"
+#
+#db.createUser({user:"gsimpson", pwd:"password", roles:[{role:"root", db:"admin"}]})
+#db.grantRolesToUser(
+#   "gsimpson",
+#   [ "readWrite" , { role: "userAdminAnyDatabase", db: "admin" }, "readWriteAnyDatabase" ],
+#   { w: "majority" , wtimeout: 4000 }
+#)
+#exit
+#
+# https://docs.mongodb.com/manual/tutorial/enable-authentication/
 #sudo gvim /lib/systemd/system/mongod.service
+#  security:
+#      authorization: enabled 
 
 #sudo systemctl daemon-reload
 #sudo service mongod restart
-
+#
 #mongo -u admin -p password  --authenticationDatabase admin
-#mongo -u hip-ops -p 308D9EA9A255-310B-5C64-251C-18941CC2 --authenticationDatabase admin
+#use admin
+#db.getUser("admin")
+#db.getUser("gsimpson")
+#
+
+#mongo -u gsimpson -p password --authenticationDatabase admin
+#use admin
+#  MONGO setup END
+#
+# http://mms.litixsoft.de/?utm_campaign=CPC&utm_medium=review&utm_source=guru99##
 
 ##  robo 3t install
+# https://robomongo.org/
+#  download the double pack - only unzip the robo (free) stuff
+#  update your PATH
+#
+# old links
 ## https://github.com/Studio3T/robomongo/releases/tag/v1.2.1
-###sudo apt-get install qt5-qmake libqt5core5a qtbase5-dev mongodb-dev libmongo-client-dev libboost-dev libpcre3-dev  libmozjs-24-dev qtbase5-dev-tools qt5-qmake qt5-default
-#sudo apt-get install qt5-qmake libqt5core5a qtbase5-dev mongodb-dev libmongo-client-dev libboost-dev libpcre3-dev qtbase5-dev-tools qt5-qmake qt5-default
- #
-#sudo apt remove -y cmake
-#sudo apt install -y cmake
-#cd /home/hipops-dev/robomongo-1.2.1/bin
-#./install
 
 
+# create an npm app
+# mkdir myapp
+# cd myapp/
+# npm init
+# npm install express --save
+
+# npm create-react-app my-app
+# cd my-app
+# start
+
+# create a React app
+# npx create-react-app my-app
+# cd my-app
+# start
+
+
+echo no | sudo npm install -g @angular/cli
 sudo npm install -g -y nodemon
 sudo npm install -g newman
+
+# ng version # confirm version
+# mkdir newAngularApp
+# cd newAngularApp/
+# ng new myproject
+# cd myproject
+# ng serve --host localhost --port 8088
+#   http://localhost:8088  
 
 #npm install mongoose --save
 #npm install body-parser --save
 
-#sudo npm install -g node-red
-#sudo npm install -g --unsafe-perm node-red
+sudo npm install -g --unsafe-perm node-red
+sudo npm update -g node-red
 #sudo npm install -g node-red-node-mongodb
 
 
@@ -184,8 +263,8 @@ sudo npm install -g newman
 #sudo systemctl status docker
 
 
-#snap install postman
-#sudo snap refresh postman
+sudo snap install postman
+sudo snap refresh postman
 
 
 ##wildfly (formerly jboss) install notes
@@ -305,19 +384,28 @@ sudo npm install -g newman
 # echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 # source ~/.bashrc
 
+# install conda on ubuntu 20
+# https://linuxize.com/post/how-to-install-anaconda-on-ubuntu-20-04/
+#
+#
+# sudo apt install libgl1-mesa-glx libegl1-mesa libxrandr2 libxrandr2 libxss1 libxcursor1 libxcomposite1 libasound2 libxi6 libxtst6
+# wget -P /tmp https://repo.anaconda.com/archive/Anaconda3-2020.02-Linux-x86_64.sh
+# # multiple enter's needed
+# bash /tmp/Anaconda3-2020.02-Linux-x86_64.sh
+
+
 
 # for IBM Learn AI day
 # install anaconda
 ##  https://linuxhint.com/install_anaconda_python_ubuntu_1804/
 ## conda install anaconda-navigator
-
-
+#
 # https://www.digitalocean.com/community/tutorials/how-to-install-anaconda-on-ubuntu-18-04-quickstart
 #  go here
 # https://www.anaconda.com/distribution/
 # download the Linux installer
-conda update --all -y
-
+# conda update --all -y
+#
 # conda create -n ibm-day python=3.7
 # conda config --set auto_activate_base false
 # conda activate ibm-day
