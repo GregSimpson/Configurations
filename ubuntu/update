@@ -25,6 +25,7 @@ sudo apt-get -y install --upgrade gnome-tweak-tool
 
 sudo apt-get -y install --upgrade ipython
 sudo apt-get -y install --upgrade ipython-notebook
+sudo apt-get -y install --upgrade jq
 
 
 #sudo apt-get -y install --upgrade openjdk-11-jdk
