@@ -82,7 +82,10 @@ alias lr='ll -R'           #  Recursive ls.
 alias la='ll -A'           #  Show hidden files.
 
 ##alias mypsql='psql -U postgres -p 5432'
+alias dwfmongo='mongo localhost/admin -u MongoDBA -p 85921C8D-1B09-4931-9EBD-2FFFA92985B2'
 alias mymongo='mongo localhost:27017 -u admin -p password  --authenticationDatabase admin'
+alias mymongostat='mongostat --username gsimpson --password password mongodb://localhost:27017   --authenticationDatabase admin -n 5 -v'
+alias mongostatus='sudo systemctl status mongod'
 alias mypsql='psql -w -h localhost -U gsimpson -d postgres'
 alias tree='tree -Csuh'    #  Nice alternative to 'recursive ls' ...
 
