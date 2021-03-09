@@ -387,17 +387,17 @@ sudo snap refresh postman
 # echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 # source ~/.bashrc
 
-# linux install conda
-# https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html#install-linux-silent
-# https://docs.conda.io/en/latest/miniconda.html
-conda install -y anaconda
-conda install -y anaconda-navigator
-conda install -y jupyter
-conda install -y jupyterlab
-conda install -y numpy
-conda install -y pandas
-conda install -y scikit-learn
-conda install -y -c conda-forge xgboost 
+# # linux install conda
+# # https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html#install-linux-silent
+# # https://docs.conda.io/en/latest/miniconda.html
+# conda install -y anaconda
+# conda install -y anaconda-navigator
+# conda install -y jupyter
+# conda install -y jupyterlab
+# conda install -y numpy
+# conda install -y pandas
+# conda install -y scikit-learn
+# conda install -y -c conda-forge xgboost 
 
 conda update --all -y 
 conda list
@@ -408,7 +408,7 @@ conda list
 # #  go here
 # # https://www.anaconda.com/distribution/
 # # download the Linux installer
-wget https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh
+# wget https://repo.anaconda.com/archive/Anaconda3-2020.07-Linux-x86_64.sh
 # # conda update --all -y
 #
 # conda create -n ibm-day python=3.7
