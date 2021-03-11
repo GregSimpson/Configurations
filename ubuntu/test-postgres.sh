@@ -1,9 +1,18 @@
 #!/bin/bash
 
-DB_USER='gsimpson'
-DB_PSWD='gsimpson'
+#DB_USER='gsimpson'
+#DB_PSWD='gsimpson'
+DB_USER='postgres'
+DB_PSWD='password'
 DB_NAME='postgres'
-DB_HOST='localhost'
+#DB_HOST='localhost'  # this does not work
+DB_HOST='127.0.0.1'
+
+export PGUSER=${DB_USER}
+export PGPASSWORD=${DB_PSWD}
+export PGHOSTADDR=${DB_HOST}
+export PGDATABASE=${DB_NAME}
+
 
 init_setup() {
 
