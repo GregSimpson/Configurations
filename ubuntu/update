@@ -21,8 +21,14 @@ sudo apt-get -y install --upgrade docker.io
 sudo apt-get -y install --upgrade dos2unix
 sudo apt-get -y install --upgrade flashplugin-installer
 sudo apt-get -y install --upgrade git
-sudo apt-get -y install --upgrade gnome-tweak-tool 
 
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
+sudo apt-add-repository https://cli.github.com/packages
+sudo apt-get -y update
+sudo apt-get -y install gh
+
+
+sudo apt-get -y install --upgrade gnome-tweak-tool 
 #sudo apt-get -y install --upgrade ipython
 #sudo apt-get -y install --upgrade ipython-notebook
 #sudo apt-get -y install --upgrade jupyter

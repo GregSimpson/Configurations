@@ -1,0 +1,7 @@
+# !/bin/sh
+# Usage: find-large-folders
+# Find folders > 500MB in size
+
+# du -k ~/* | awk '$1 > 500000' | sort -nr
+#du -k /cygdrive/c | awk '$1 > 5000' | sort -nr
+du -ab /home/gsimpson/gjs| awk '$1 > 500000' | sort -nr

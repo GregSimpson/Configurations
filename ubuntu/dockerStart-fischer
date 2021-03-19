@@ -1,0 +1,14 @@
+#!/bin/bash
+
+export REDIS_CLUSTER_IP=0.0.0.0
+docker network create realplay
+
+pushd /home/gsimpson/gjs/git_stuff/project-fischer/_docker/data
+sudo rm -Rf postgres
+popd
+
+pushd /home/gsimpson/gjs/git_stuff/project-fischer/_docker
+clear; docker-compose up --build -d
+popd
+
+
