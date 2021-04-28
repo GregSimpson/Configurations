@@ -6,8 +6,8 @@
 
 # https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04
 
-sudo rm /var/lib/dpkg/lock > /dev/null 2>&1
-sudo rm /var/lib/dpkg/lock-frontend > /dev/null 2>&1
+#sudo rm /var/lib/dpkg/lock > /dev/null 2>&1
+#sudo rm /var/lib/dpkg/lock-frontend > /dev/null 2>&1
 
 sudo apt-get -y update
 sudo apt-get -y upgrade
@@ -21,6 +21,7 @@ sudo apt-get -y install --upgrade docker.io
 sudo apt-get -y install --upgrade dos2unix
 sudo apt-get -y install --upgrade flashplugin-installer
 sudo apt-get -y install --upgrade git
+sudo apt-get -y install --upgrade graphviz
 
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
 sudo apt-add-repository https://cli.github.com/packages
@@ -89,6 +90,7 @@ sudo pip3 install pyodbc
 
 sudo apt-get -y install --upgrade rpm
 sudo apt-get -y install --upgrade simplescreenrecorder
+sudo apt-get -y install --upgrade python-six
 sudo apt-get -y install --upgrade snapd
 sudo apt-get -y install --upgrade tree
 sudo apt-get -y install --upgrade unity-tweak-tool
@@ -125,9 +127,8 @@ sudo apt-get -y install --upgrade virtualenv
 # pip stuff here
 #pip install --upgrade pip
 #pip install --upgrade tensorflow
-
-#pip install pydbgen
 pip install pipdeptree
+#pip install pydbgen
 
 
 #  MONGO setup BEGIN
