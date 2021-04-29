@@ -23,4 +23,6 @@ run "C:\Users\eloy98104\AppData\Local\slack\slack.exe"
 run "C:\Program Files (x86)\Microsoft Office\root\Office16\OUTLOOK.EXE"
 run C:\Users\eloy98104\AppData\Local\Microsoft\Teams\Update.exe --processStart "Teams.exe"
 
+run C:\cygwin64\bin\mintty.exe -i /Cygwin-Terminal.ico -
+
 
