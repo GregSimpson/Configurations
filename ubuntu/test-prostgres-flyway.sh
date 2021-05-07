@@ -3,7 +3,7 @@
 #DB_USER='gsimpson'
 #DB_PSWD='gsimpson'
 DB_USER='postgres'
-DB_PSWD='password'
+DB_PSWD='pa'
 DB_NAME='postgres'
 #DB_HOST='localhost'  # this does not work
 DB_HOST='127.0.0.1'
