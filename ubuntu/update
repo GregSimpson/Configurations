@@ -14,14 +14,24 @@ sudo apt-get -y upgrade
 sudo apt -y --fix-broken install
 
 sudo apt-get -y install --upgrade alien
+sudo pip3 install auth0-python
+sudo pip3 install authlib
+sudo pip3 install boto
+sudo pip3 install boto3
+sudo pip3 install botocore
 sudo apt-get -y install --upgrade cups-pdf
 sudo apt-get -y install --upgrade curl
 sudo apt-get -y install --upgrade docker-compose
 sudo apt-get -y install --upgrade docker.io
 sudo apt-get -y install --upgrade dos2unix
 sudo apt-get -y install --upgrade flashplugin-installer
+sudo pip3 install flask-cors
 sudo apt-get -y install --upgrade git
+sudo pip3 install google-cloud-bigquery
+sudo pip3 install google-cloud-speech
+sudo pip3 install --upgrade google-cloud-texttospeech
 sudo apt-get -y install --upgrade graphviz
+sudo pip3 install gTTS
 
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
 sudo apt-add-repository https://cli.github.com/packages
@@ -29,13 +39,17 @@ sudo apt-get -y update
 sudo apt-get -y install gh
 
 
+sudo apt-get -y install g++
 sudo apt-get -y install --upgrade gnome-tweak-tool 
+sudo pip3 install google-cloud
+sudo apt-get -y install --upgrade gunicorn
 #sudo apt-get -y install --upgrade ipython
 #sudo apt-get -y install --upgrade ipython-notebook
 #sudo apt-get -y install --upgrade jupyter
 sudo apt-get -y install --upgrade jq
 
 
+sudo pip3 install marshmallow
 #sudo apt-get -y install --upgrade openjdk-11-jdk
 sudo apt-get -y install --upgrade openjdk-8-jdk
 sudo apt-get -y install --upgrade openvpn
@@ -49,7 +63,29 @@ sudo apt-get -y install --upgrade libcanberra-gtk*
 sudo apt-get -y install --upgrade net-tools
 sudo apt-get -y install --upgrade nodejs
 sudo apt-get -y install --upgrade node-gyp
-sudo apt-get -y install --upgrade npm
+#sudo apt-get -y install --upgrade npm
+# https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04
+# https://github.com/nvm-sh/nvm
+#
+# look at the script
+# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh
+#
+# run the script
+# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+#
+# source ~/.bashrc
+#
+# which V's are available?
+# nvm list-remote
+#
+# nvm install v13.6.0
+# could also use the codeName
+nvm install lts/boron # boron is v6.x.x LTS
+#
+# nvm list
+node -v
+#
+#
 
 sudo apt-get -y install --upgrade perl
 #sudo apt-get -y install --upgrade postgresql
@@ -72,6 +108,7 @@ sudo apt-get -y install --upgrade postgresql-contrib
 
 
 sudo apt-get -y install --upgrade putty
+sudo pip3 install pydub
 sudo apt-get -y install --upgrade python-matplotlib
 sudo apt-get -y install --upgrade python-pip 
 sudo apt-get -y install --upgrade python-pyasn1
@@ -81,11 +118,12 @@ sudo apt-get -y install --upgrade python3.6
 sudo apt-get -y install --upgrade python3-pandas
 sudo apt-get -y install --upgrade python3-pip 
 sudo -H pip3 install pyodbc
+sudo pip3 install pyodbc
+sudo pip3 install redis
+sudo pip3 install redis-py-cluster
 #sudo ln -s /usr/bin/pip3 /usr/bin/pip
 
-sudo apt-get -y install g++
 sudo apt-get -y install unixodbc-dev
-sudo pip3 install pyodbc
 
 
 sudo apt-get -y install --upgrade rpm
@@ -93,6 +131,8 @@ sudo apt-get -y install --upgrade simplescreenrecorder
 sudo apt-get -y install --upgrade python-six
 sudo apt-get -y install --upgrade snapd
 sudo apt-get -y install --upgrade tree
+sudo pip3 install ujson
+sudo pip3 install unidecode
 sudo apt-get -y install --upgrade unity-tweak-tool
 sudo apt-get -y install --upgrade vim-gtk
 sudo apt-get -y install --upgrade virtualbox-guest-dkms
@@ -129,6 +169,7 @@ sudo apt-get -y install --upgrade virtualenv
 #pip install --upgrade tensorflow
 pip install pipdeptree
 #pip install pydbgen
+pip install tensorflow
 
 
 #  MONGO setup BEGIN
@@ -275,6 +316,17 @@ sudo npm update -g node-red
 
 sudo snap install postman
 sudo snap refresh postman
+
+
+## google-cloud install notes
+#
+#https://vitux.com/install-google-cloud-sdk-on-ubuntu/
+#
+#mkdir google; cd google
+#wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-307.0.0-linux-x86_64.tar.gz 
+#tar –xvzf google-cloud-sdk-307.0.0-linux-x86_64.tar.gz
+#cd google-cloud-sdk
+#./install.sh
 
 
 ##wildfly (formerly jboss) install notes
@@ -445,6 +497,7 @@ conda list
 # ibmcloud login
 #
 
+sudo apt-get -y install --upgrade xterm
 sudo apt -y --fix-broken install
 sudo apt -y autoremove
 #sudo apt list --upgradeable
