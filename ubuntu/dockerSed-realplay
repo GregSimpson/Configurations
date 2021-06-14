@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# set the local DB
+sed -i 's/flyway.url=jdbc:postgresql:\/\/realplay-postgres:5432\/realplay/flyway.url=jdbc:postgresql:\/\/172.17.0.1:5432\/postgres/' /home/gsimpson/gjs/git_stuff/RealPlay/database/postgres/Migrations/local_env/flyway.conf 
+
+# set the dev db pswd
+sed -i 's/\[PASSWORD\]/CB5BCDB4-34BD-4C13-8294-84F7463B3949/' /home/gsimpson/gjs/git_stuff/RealPlay/database/postgres/Migrations/dev_env/flyway.conf 
+
+# set the qa db pswd
+sed -i 's/insert_password_here/CB5BCDB4-34BD-4C13-8294-84F7463B3949/' /home/gsimpson/gjs/git_stuff/RealPlay/database/postgres/Migrations/qa_env/flyway.conf 
+
+
+

@@ -1,14 +1,27 @@
 #!/bin/bash
 
+# EDIT this variable to point to your GIT checkout dir
+GIT_CHECKOUT_DIR=/home/gsimpson/gjs/git_stuff
+
+# ---------------------------------------- #
+# -  no need to edit anything below this - #
+# ---------------------------------------- #
+
 export REDIS_CLUSTER_IP=0.0.0.0
+# these complain if the network already exists - no problem
+docker network create fischer
 docker network create realplay
 
-pushd /home/gsimpson/gjs/git_stuff/project-fischer/_docker/data
+# clean up step - might not be needed every time - no problem
+pushd ${GIT_CHECKOUT_DIR}/RealPlay/data
 sudo rm -Rf postgres
 popd
 
-pushd /home/gsimpson/gjs/git_stuff/project-fischer/_docker
-clear; docker-compose up --build -d
+# download docker container images and start them
+pushd ${GIT_CHECKOUT_DIR}/RealPlay/_docker
+docker-compose up --build -d
 popd
 
+docker ps
+docker images ls
 

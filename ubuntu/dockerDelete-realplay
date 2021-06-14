@@ -1,8 +1,13 @@
 #!/bin/bash
 
+# EDIT this variable to point to your GIT checkout dir
+GIT_CHECKOUT_DIR=/home/gsimpson/gjs/git_stuff
 
-pushd /home/gsimpson/gjs/git_stuff/project-fischer/_docker
+# ---------------------------------------- #
+# -  no need to edit anything below this - #
+# ---------------------------------------- #
 
+pushd ${GIT_CHECKOUT_DIR}/RealPlay/_docker
 #-- shutdown docker images
 docker-compose stop
 docker-compose rm -f
@@ -11,7 +16,33 @@ docker network prune -f
 docker system prune -a -f
 #-- rm all docker images
 docker image rm $(docker image ls -a -q)
-
 popd
+
+
+pushd ${GIT_CHECKOUT_DIR}/RealPlay/realplay_server
+#-- shutdown docker images
+docker-compose stop
+docker-compose rm -f
+docker image prune -a -f
+docker network prune -f
+docker system prune -a -f
+#-- rm all docker images
+docker image rm $(docker image ls -a -q)
+popd
+
+
+pushd ${GIT_CHECKOUT_DIR}/RealPlay/realplay
+#-- shutdown docker images
+docker-compose stop
+docker-compose rm -f
+docker image prune -a -f
+docker network prune -f
+docker system prune -a -f
+#-- rm all docker images
+docker image rm $(docker image ls -a -q)
+popd
+
+docker ps
+docker images ls
 
 

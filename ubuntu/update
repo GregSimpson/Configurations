@@ -496,6 +496,9 @@ conda list
 # curl -sL https://ibm.biz/idt-installer | bash
 # ibmcloud login
 #
+#  sudo npm install -g npm
+sudo npm install -g npm@3.10.10  # an older version
+sudo npm audit fix
 
 sudo apt-get -y install --upgrade xterm
 sudo apt -y --fix-broken install

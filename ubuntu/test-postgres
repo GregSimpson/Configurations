@@ -1,0 +1,55 @@
+#!/bin/bash
+
+DB_USER='realplayuser'
+DB_PSWD='password'
+#DB_NAME='realplay'
+DB_NAME='postgres'
+#DB_HOST='localhost'  # this does not work
+DB_HOST='127.0.0.1'
+
+export PGUSER=${DB_USER}
+export PGPASSWORD=${DB_PSWD}
+export PGHOSTADDR=${DB_HOST}
+export PGDATABASE=${DB_NAME}
+
+simpleTest() {
+	psql -w -h $DB_HOST -U $DB_USER -d $DB_NAME -c 'select current_database();'
+}
+
+botSvcTest() {
+	psql -w -h $DB_HOST -U $DB_USER -d $DB_NAME -c 'select * from botservice;'
+}
+
+	#psql -w -h $DB_HOST -U $DB_USER -d $DB_NAME -c 'select * from information_schema.routines;'
+	#psql -w -h $DB_HOST -U $DB_USER -d $DB_NAME -c 'select specific_name, module_name, last_altered, created from information_schema.routines;'
+show_procs() {
+	psql -w -h $DB_HOST -U $DB_USER -d $DB_NAME -c '
+select 
+specific_catalog, 
+specific_schema, 
+routine_schema, 
+routine_type, 
+dtd_identifier, 
+routine_body, 
+routine_definition, 
+external_language, 
+is_deterministic, 
+security_type 
+from information_schema.routines 
+;'
+}
+
+
+
+#### run this function
+simpleTest
+#botSvcTest
+#show_procs  # no good info in postgres
+
+### the output should say
+#  current_database 
+# ------------------
+#  realplay
+# (1 row)
+
+
