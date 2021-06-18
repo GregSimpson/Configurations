@@ -35,7 +35,6 @@ sudo pip3 install gTTS
 
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
 sudo apt-add-repository https://cli.github.com/packages
-sudo apt-get -y update
 sudo apt-get -y install gh
 
 
@@ -52,18 +51,28 @@ sudo apt-get -y install --upgrade jq
 sudo pip3 install marshmallow
 #sudo apt-get -y install --upgrade openjdk-11-jdk
 sudo apt-get -y install --upgrade openjdk-8-jdk
+
+# sudo wget -O - https://swupdate.openvpn.net/repos/repo-public.gpg|apt-key add -
+# sudo echo "deb http://build.openvpn.net/debian/openvpn/<version> <osrelease> main" > /etc/apt/sources.list.d/openvpn-aptrepo.list
+# sudo echo "deb http://build.openvpn.net/debian/openvpn/stable focal main" > /etc/apt/sources.list.d/openvpn-aptrepo.list
+# cat /etc/apt/sources.list.d/openvpn-aptrepo.list 
 sudo apt-get -y install --upgrade openvpn
 
-sudo apt-get -y install --upgrade libssl1.0-dev
+#sudo apt-get -y install --upgrade libssl1.0-dev
 sudo apt-get -y install --upgrade libcurl4
 sudo apt-get -y install --upgrade libcanberra-gtk-module
 sudo apt-get -y install --upgrade libcanberra-gtk*
 
 #sudo apt-get -y install --upgrade mongodb-clients
 sudo apt-get -y install --upgrade net-tools
-sudo apt-get -y install --upgrade nodejs
-sudo apt-get -y install --upgrade node-gyp
+#sudo apt-get -y install --upgrade nodejs
+sudo apt-get -y install --upgrade ng-common
+
+#sudo apt-get -y install --upgrade libnode-dev
+#sudo apt-get -y install --upgrade node-npmlog
+#sudo apt-get -y install --upgrade node-gyp
 #sudo apt-get -y install --upgrade npm
+#
 # https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-ubuntu-20-04
 # https://github.com/nvm-sh/nvm
 #
@@ -109,10 +118,16 @@ sudo apt-get -y install --upgrade postgresql-contrib
 
 sudo apt-get -y install --upgrade putty
 sudo pip3 install pydub
-sudo apt-get -y install --upgrade python-matplotlib
-sudo apt-get -y install --upgrade python-pip 
+
+#sudo apt-get -y install --upgrade python-matplotlib
+pip install matplotlib
+
+#sudo apt-get -y install --upgrade python-pip 
+#sudo apt reinstall python3-pip
+sudo apt-get -y install --upgrade python3-pip
 sudo apt-get -y install --upgrade python-pyasn1
-sudo apt-get -y install --upgrade python-paramiko
+#sudo apt-get -y install --upgrade python-paramiko
+sudo python3 -m pip install paramiko
 sudo apt-get -y install --upgrade python-setuptools
 sudo apt-get -y install --upgrade python3.6
 sudo apt-get -y install --upgrade python3-pandas
@@ -275,25 +290,6 @@ sudo apt-get -y install --upgrade mongodb-org
 # cd my-app
 # start
 
-
-echo no | sudo npm install -g @angular/cli
-sudo npm install -g -y nodemon
-sudo npm install --upgrade -g newman
-
-# ng version # confirm version
-# mkdir newAngularApp
-# cd newAngularApp/
-# ng new myproject
-# cd myproject
-# ng serve --host localhost --port 8088
-#   http://localhost:8088  
-
-#npm install mongoose --save
-#npm install body-parser --save
-
-sudo npm install -g --unsafe-perm node-red
-sudo npm update -g node-red
-#sudo npm install -g node-red-node-mongodb
 
 
 ### to install docker (as a system service )
@@ -497,10 +493,83 @@ conda list
 # ibmcloud login
 #
 #  sudo npm install -g npm
+sudo apt -y install --upgrade aptitude
+sudo aptitude -y remove nodejs
+sudo rm -rf /usr/lib/node_modules*
+sudo aptitude -y install nodejs
+
+# https://github.com/nodejs/help/issues/2874 
+#  NODE_VERSION=12.18.2
+#  curl -sSL "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v$NODE_VERSION-linux-x64/bin/node
+
+#sudo aptitude -y install npm
+
+#sudo aptitude -y install libnode-dev
+#sudo aptitude -y install libnode64
+#sudo aptitude -y install node-gyp
+
+#  sudo rm -rf /usr/local/bin/npm /usr/local/share/man/man1/node* ~/.npm
+
+# sudo rm -rf /usr/local/lib/node*
+# sudo rm -rf /usr/local/bin/node*
+# sudo rm -rf /usr/local/include/node*
+# sudo apt-get purge nodejs npm
+# sudo apt autoremove
+
+##sudo apt -y install --allow-downgrades libssl1.1=1.1.1f-1ubuntu2
+#sudo apt-get -y install libssl1.0-dev
+#sudo apt-get -y install libnode-dev
+#sudo apt-get -y install node-gyp
+#sudo apt-get -y install nodejs-dev
+#sudo aptitude -y install npm
+#sudo apt -y install npm
+
 sudo npm install -g npm@3.10.10  # an older version
-sudo npm audit fix
+#sudo /usr/local/bin/npm install -g npm@3.10.10  # an older version
+#sudo /usr/bin/npm install -g npm@3.10.10  # an older version
+#sudo npm audit fix
+
+# echo no | sudo npm install -g @angular/cli
+echo no | sudo npm i -g @angular/cli@latest
+sudo npm install -g -y nodemon
+sudo npm install --upgrade -g newman
+
+# ng version # confirm version
+# mkdir newAngularApp
+# cd newAngularApp/
+# ng new myproject
+# cd myproject
+# ng serve --host localhost --port 8088
+#   http://localhost:8088  
+
+#npm install mongoose --save
+#npm install body-parser --save
+
+sudo npm install -g --unsafe-perm node-red
+sudo npm update -g node-red
+#sudo npm install -g node-red-node-mongodb
 
 sudo apt-get -y install --upgrade xterm
 sudo apt -y --fix-broken install
 sudo apt -y autoremove
+
 #sudo apt list --upgradeable
+#
+#
+# https://stackoverflow.com/questions/26571326/how-do-i-resolve-the-following-packages-have-unmet-dependencies
+# sudo apt-get update
+# sudo apt-get clean
+# sudo apt-get autoremove
+# 
+# 
+########
+# sudo apt --fix-broken install
+# sudo apt-get update && sudo apt-get upgrade
+# sudo dpkg --configure -a
+# sudo apt-get install -f
+
+ng version
+npm version
+node --version
+
+
