@@ -1,0 +1,4 @@
+cd ~/gjs/git_stuff/RealPlay/realplay
+. ./app-config/localhost-env.sh
+npm run start
+

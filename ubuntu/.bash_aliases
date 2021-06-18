@@ -30,9 +30,9 @@ export PATH=$PATH:$PYHTTP_HOME
 #eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+#export PYENV_ROOT="$HOME/.pyenv"
+#export PATH="$PYENV_ROOT/bin:$PATH"
+#eval "$(pyenv init --path)"
 
 
 

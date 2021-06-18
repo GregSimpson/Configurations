@@ -1,0 +1,6 @@
+cd ~/gjs/git_stuff/RealPlay/realplay_admin
+npm install
+ng build
+echo " open http://localhost:3001"
+node server.js
+
