@@ -1,0 +1,11 @@
+#!/bin/bash
+
+
+echo -s " run localRP-admin instead"
+
+
+#cd ~/gjs/git_stuff/RealPlay/realplay_admin
+#npm install
+#clear
+#npm run build
+

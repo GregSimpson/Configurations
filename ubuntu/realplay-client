@@ -1,7 +1,11 @@
+#!/bin/bash
 
-cd ~/gjs/git_stuff/RealPlay/realplay
-. ./app-config/localhost-env.sh
-npm install
-npm run start
 
+echo -s " run localRP-client instead"
+
+
+# cd ~/gjs/git_stuff/RealPlay/realplay
+# . ./app-config/localhost-env.sh
+# npm install
+# npm run start
 

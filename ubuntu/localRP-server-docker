@@ -1,0 +1,3 @@
+cd ~/gjs/git_stuff/RealPlay/realplay_server
+docker network create realplay
+docker-compose up --build

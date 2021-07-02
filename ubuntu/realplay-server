@@ -1,12 +1,14 @@
 #!/bin/bash
 
-cd ~/gjs/git_stuff/RealPlay/realplay_server
+echo -s " run localRP-server instead"
+
+##cd ~/gjs/git_stuff/RealPlay/realplay_server
 #
 #  From :/home/gsimpson/gjs/git_stuff/RealPlay/realplay_server/README.md
 #
 #You can start the server by running:
 #
-sh run_server_localhost.sh
+##sh run_server_localhost.sh
 #Or alternatively:
 #
 # Run with logging out to stderr. Also logs to REALPLAY_LOG_PATH if set. May need to alter port (5000) if running AA

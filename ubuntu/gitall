@@ -7,13 +7,14 @@ cd ~/gjs/git_stuff/dwf-ai-tools ; git pull
 cd ~/gjs/git_stuff/dwf_devops ; git pull
 cd ~/gjs/git_stuff/dwf-ps-tools ; git pull
 cd ~/gjs/git_stuff/Fail-Over-Manager ; git pull
-cd ~/gjs/git_stuff/looker_embed_sso_examples ; git pull
+#cd ~/gjs/git_stuff/looker_embed_sso_examples ; git pull
 cd ~/gjs/git_stuff/NTU-AdminUI ; git pull
 cd ~/gjs/git_stuff/portal-api ; git pull
 cd ~/gjs/git_stuff/portal-client ; git pull
 cd ~/gjs/git_stuff/portal-devops ; git pull
 cd ~/gjs/git_stuff/Portal-NG-Automation ; git pull
 cd ~/gjs/git_stuff/project-fischer ; git pull
+cd ~/gjs/git_stuff/pythonProject1.1 ; git pull
 cd ~/gjs/git_stuff/SIP-Directory ; git pull
 cd ~/gjs/git_stuff/RealPlay ; git pull
 source ~/.bashrc

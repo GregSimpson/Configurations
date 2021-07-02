@@ -170,7 +170,7 @@ function settitle() {
 
 #FIND_TARGET_INCLUDES="--include=*.java --include=*.xml --include=*.js --include=*.jsp --include=*.html --include=*_en.* --include=*.prop* --include=*.sql --include=*.csv  --include=*.txt"
 FIND_TARGET_INCLUDES="--include=*.java --include=*.xml --include=*.js --include=*.jsp --include=*.html --include=*_en.* --include=*.prop* --include=*.sql --include=*.*"
-FIND_TARGET_EXCLUDES=" --exclude-dir=target --exclude-dir=icCallMe-CLI --exclude-dir=angular --exclude-dir=doc --exclude-dir=docs --exclude-dir=lib  --exclude-dir=dist --exclude-dir=.idea --exclude-dir=test --exclude-dir=node --exclude-dir=mobile-app "
+FIND_TARGET_EXCLUDES=" --exclude-dir=target --exclude-dir=icCallMe-CLI --exclude-dir=angular --exclude-dir=doc --exclude-dir=docs --exclude-dir=lib  --exclude-dir=dist --exclude-dir=.idea --exclude-dir=test --exclude-dir=node --exclude-dir=mobile-app  --exclude-dir=build  --exclude-dir=node_modules"
 #FIND_TARGET_EXCLUDES="  --exclude-dir=dist --exclude-dir=.idea --exclude-dir=test --exclude-dir=node "
 FIND_TARGET_STARTDIR=" ."
 findfiles() {

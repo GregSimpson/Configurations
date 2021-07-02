@@ -52,6 +52,18 @@ sudo pip3 install marshmallow
 #sudo apt-get -y install --upgrade openjdk-11-jdk
 sudo apt-get -y install --upgrade openjdk-8-jdk
 
+#  for Openvpn - signonto : https://mgmt-vpn.humanify.com/?src=connect
+#  download the .ovpm file - import that into the VPN setup in the network settings
+#
+#
+## sudo apt -y install --upgrade apt-transport-https
+## wget https://swupdate.openvpn.net/repos/openvpn-repo-pkg-key.pub
+## sudo apt-key add openvpn-repo-pkg-key.pub
+## sudo wget -O /etc/apt/sources.list.d/openvpn3.list https://swupdate.openvpn.net/community/openvpn3/repos/openvpn3-focal.list
+## sudo apt update
+## sudo apt -y install --upgrade openvpn3
+
+
 # sudo wget -O - https://swupdate.openvpn.net/repos/repo-public.gpg|apt-key add -
 # sudo echo "deb http://build.openvpn.net/debian/openvpn/<version> <osrelease> main" > /etc/apt/sources.list.d/openvpn-aptrepo.list
 # sudo echo "deb http://build.openvpn.net/debian/openvpn/stable focal main" > /etc/apt/sources.list.d/openvpn-aptrepo.list
@@ -522,7 +534,7 @@ sudo aptitude -y install nodejs
 #sudo apt-get -y install node-gyp
 #sudo apt-get -y install nodejs-dev
 #sudo aptitude -y install npm
-#sudo apt -y install npm
+sudo apt -y install npm
 
 sudo npm install -g npm@3.10.10  # an older version
 #sudo /usr/local/bin/npm install -g npm@3.10.10  # an older version

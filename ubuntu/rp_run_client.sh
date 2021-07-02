@@ -62,7 +62,11 @@
 #-----------------
 
 
-echo " launching realplay CLIENT "
+echo -s " run localRP-client instead"
+
+
+
+# echo " launching realplay CLIENT "
 
 # # to start the client
 chmod 755 ~/gjs/git_stuff/RealPlay/realplay/app-config/local*-env.sh
@@ -73,13 +77,13 @@ env|grep RUNTIME
 env|grep REAL
 env|grep REACT
 
-sleep 5
+#sleep 5
 
 cd ~/gjs/git_stuff/RealPlay/realplay
 
 ##xdg-open http://localhost:3000
-npm run build # if followed by npm start
-npm start
+# npm run build # if followed by npm start
+# npm start
 # ## dos2unix run_docker.sh 
 # ## bash run_docker.sh localhost
 # ## echo "run this :: xdg-open http://localhost:3000"

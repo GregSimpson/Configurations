@@ -1,4 +1,5 @@
 # put this file in : /etc/sudoers.d
+# chmod 775
 
 ## Adding some commands so I don't need to enter password to run.
 #myusername ALL=(ALL) NOPASSWD: /home/myusername/bin/ps-mem, /sbin/poweroff, /sbin/reboot

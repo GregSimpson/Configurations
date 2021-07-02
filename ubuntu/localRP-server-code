@@ -1,0 +1,33 @@
+
+export RUNTIME_ENV=dce1
+export REALPLAY_LOG_PATH=./gunicorn.log
+export REALPLAY_DB_URI=postgres://realplayuser:F35D6492-CC53-4F38-BA0C-DA8500D793C9@ovpc1-pgsql01.clrygru5fh3l.us-west-2.rds.amazonaws.com:5432/realplay_dce1
+export PYTHONUNBUFFERED=True
+export BUCKET_NAME_AUDIO=ttec-audio2
+export BUCKET_NAME_TTS=realplay-tts2
+export BUCKET_PATH=/mnt
+export RECORDING_FILE_MODE=EFS
+export RECORDING_FILE_PATH=/mnt/humanify-dts01
+#rem export RULE_ENGINE_URL=http://10.12.7.197:30378
+export RULE_ENGINE_URL=http://10.12.13.171:30378
+export LANG=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export REDIS_CACHE_EXPIRY_SECS=3600
+export GOOGLE_APPLICATION_CREDENTIALS=./keys/RealPlay-Authorization.json
+export REALPLAY_URL_PREFIX=/api/v1
+export ADMIN_PORTAL_AUTH0_DOMAIN=ttec-ped-developers.auth0.com
+  
+export REDIS_HOST=localhost
+export REDIS_PORT=7000
+export REDIS_CACHE_EXPIRY_SECS=3600
+  
+#rem export path=F:\soft\Python27;F:\soft\Python27\Scripts
+#cd ~/gjs/git_stuff/RealPlay/realplay_server
+#  python application.py
+### cd "~/gjs/git_stuff/RealPlay/realplay_server"
+
+cd "/home/gsimpson/gjs/git_stuff/RealPlay/realplay_server"
+pip install -r requirements.txt 
+python application.py
+

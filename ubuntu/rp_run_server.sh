@@ -3,8 +3,12 @@
 # gnome-terminal --window-with-profile=rp_server
 #  xterm  -e /bin/bash -l -c "/home/gsimpson/bin/rp_run_server.sh; bash"
 
-cd ~/gjs/git_stuff/RealPlay/_docker
-docker network create realplay
+
+echo -s " run localRP-server instead"
+
+
+# cd ~/gjs/git_stuff/RealPlay/_docker
+# docker network create realplay
 
 export CUSTOM_BUILD="parasol"
 export REACT_APP_LOCAL_TENANT="parasol"
@@ -46,11 +50,11 @@ export REDIS_CACHE_EXPIRY_SECS=3600
 env|grep REAL
 env|grep RULE
 env|grep REDIS
-sleep 5
+# sleep 5
 
-docker-compose up -d --build
+# docker-compose up -d --build
 
 # to start the server
-cd ~/gjs/git_stuff/RealPlay/realplay_server
-sh run_server_localhost.sh
+# cd ~/gjs/git_stuff/RealPlay/realplay_server
+# sh run_server_localhost.sh
 
